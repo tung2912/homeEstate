@@ -115,13 +115,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
 });
 
-
-
-
-
-
+// Dung xoa
 Route::get('{any}', function () {
-    return view('client');
+    return view('client-app');
 })->where('any','.*');
 
 
