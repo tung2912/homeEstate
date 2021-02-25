@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    font-family: Helvetica;
+    font-size: 16px;
+}
+#textLogo {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 2px;
+    letter-spacing: 2px;
+}
+a.confirmButton {
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #5366a7;
+    padding: 15px 25px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-left: 15%;
+    margin-bottom: 15px;
+}
+a.backButton {
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #171718;
+    padding: 15px 25px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-bottom: 15px;
+}
+
+/* Estate Detail*/
+.estate-owner {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+
+    margin: 0 1rem 0 0.5rem  ;
+
+}
+
+.estate-owner span {
+    font-size: 1.3rem;
+    margin-right: 2rem;
+}
+
+.estate-detail span {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
+
+.es-icon {
+    margin-right: 1rem;
+}
+
+
+
+.estate-owner p {
+    font-size: 1rem;
+
+}
+
+
+.estate-detail {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+
+    margin: 0 0.5rem 0 1rem  ;
+}
+
+.estate-owner h5,
+.estate-detail h5 {
+    text-align: center;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 991px) {
+    .estate-owner {
+        margin: 0 2rem 1rem;
+    }
+}
+

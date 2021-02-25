@@ -1,0 +1,126 @@
+@extends('admin.layout.master')
+
+{{--@section('page-title', 'Estate Detail')--}}
+
+@section('content')
+
+    <div class="container-fluid">
+        <a href="{{ route('estates.index') }}" class="btn btn-success mb-2"><i
+     class="far fa-hand-point-left"></i> Back</a>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 estate-owner">
+                <h5 class="mt-2">Owner</h5>
+                <hr>
+                <p><span><i class="far fa-user"></i></span> {{$estate->owner->name}}</p>
+                <p><span><i class="far fa-envelope"></i></span> {{$estate->owner->email}}</p>
+                <p><span><i class="fas fa-home"></i></span> {{$estate->owner->address}}</p>
+                <p><span><i class="fas fa-phone"></i></span> {{$estate->owner->phone}}</p>
+
+                <a href="{{ route('clients.ownerDetail', $estate->owner->id) }}" class="btn btn-dark mb-2"><i
+                        class="far fa-user"></i> Onwer's Detail</a>
+
+            </div>
+
+            <div class="col-lg-7 col-md-12 col-sm-12 estate-detail">
+                <h5 class="mt-2">Estate Detail <sup style="font-size: 0.7rem" class="badge badge-danger">{{$estate->getStatus()}}</sup></h5>
+                <hr>
+                <div class="row">
+                    <div class="col-7">
+                        <p><span><i class="fas fa-th-large"></i></span> {{ $estate->floor_space }} sqft</p>
+                        <p><span><i class="fas fa-dollar-sign"></i></span> {{ $estate->price }}</p>
+                        <p><span><i class="fas fa-map-pin"></i></span> {{ $estate->address }}, {{ $estate->city->name }}</p>
+
+                    </div>
+
+                    <div class="col-3">
+                        <p><span><i class="fas fa-bed"></i></span> {{ $estate->bedroom_nums }} Beds</p>
+                        <p><span><i class="fas fa-bath"></i></span> {{ $estate->bathroom_nums }} Baths</p>
+                        <p><span><i class="fas fa-car"></i></span> {{ $estate->garage_nums }} Garage</p>
+
+                    </div>
+
+                </div>
+
+                <div class="row ml-1">
+                    <p><span><i class="far fa-edit"></i></span>{{ $estate->description }}</p>
+                </div>
+
+                {{-- show image by model bootstrap--}}
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="mt-2">
+                            <button value="{{$estate->id}}" type="button" class="btn btn-primary mb-2 details" >
+                                <i class="fas fa-image"></i> Show Images
+                            </button>
+                            <div style="display: none" class="detailHTML{{$estate->id}}">
+                                <div class="row">
+                                    @forelse($estate->images as $image)
+                                        <div class="col">
+                                            <img style="width: 100px" src="{{$image->getNameImage()}}" alt="">
+                                        </div>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3">No data</td>
+                                        </tr>
+                                    @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-12 col-sm-12 ml-auto">
+                        <form class="form-inline" action="{{ route('estates.changeStatus', $estate->id) }}" method="post">
+                            @csrf
+                            <div class="form-group mx-sm-3 mb-2">
+                                <select class="form-control" id="exampleFormControlSelect1" name="status">
+                                    <option value="1">WAITING</option>
+                                    <option value="2">APPROVED</option>
+                                    <option value="3">CANCEL</option>
+                                    <option value="4">DONE</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Change Status</button>
+
+                        </form>
+                    </div>
+                </div>
+            <!-- Button trigger modal -->
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+@endsection
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Images List</h5>
+                <button style="font-weight: bold; border: none" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section('js')
+    <script>
+        $('body').on('click','.details',function (){
+            let id = $(this).val();
+            let html = $('.detailHTML'+id).html();
+            $('.modal-body').html(html)
+            $('#exampleModal').modal('show')
+        })
+    </script>
+@endsection
