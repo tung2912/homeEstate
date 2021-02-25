@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EstateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,9 @@ Route::middleware('api')->prefix('auth')->group(function(){
     Route::get('profile',[AuthController::class,'profile']);
     Route::post('profile',[AuthController::class,'profile']);
     Route::post('refresh',[AuthController::class,'refresh']);
+});
+
+Route::prefix('estate')->group(function () {
+    Route::get('listEstate',[EstateController::class,'apiEstateList']);
+    Route::get('detail/{estate_id}',[EstateController::class,'apiEstateDetail']);
 });
