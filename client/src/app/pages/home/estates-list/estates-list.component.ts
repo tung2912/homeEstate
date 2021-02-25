@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Estate} from '../../../shared/models/estates.model';
+import {EstateService} from '../../../services/estate.service';
 
 @Component({
   selector: 'app-estates-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstatesListComponent implements OnInit {
 
-  constructor() { }
+  estatesList: Estate[]|any = [];
+
+  constructor(private estateService: EstateService) { }
 
   ngOnInit(): void {
+    this.estateService.getAll().subscribe(
+      res => {
+        this.estatesList = res;
+      }
+    );
   }
 
 }
