@@ -7,9 +7,12 @@ use App\Models\Client;
 use App\Models\Estate;
 use App\Models\Income;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isNull;
 
 class EstateController extends Controller
 {
+
+    //for dashboard
     public function index()
     {
         $estates = Estate::all();
@@ -48,4 +51,25 @@ class EstateController extends Controller
         return view('admin.estates.list', compact('estates'));
 
     }
+
+    //End for Dashboard
+
+    //For client
+
+    public function apiEstateList() {
+        return response()->json(Estate::all(),200);
+    }
+
+    public function apiEstateDetail($id) {
+        $estate = Estate::find($id);
+
+        if(is_null($estate)) {
+            return response()->json(['message' => 'Estate not found'], 404);
+        }
+
+        return response()->json($estate, 200);
+    }
+
+
+    //End for Client
 }
