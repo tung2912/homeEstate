@@ -9,9 +9,10 @@
       <span> <i>Address:</i> {{estate.address}}</span>
     </div>
   </div>
+
   <div class="row">
     <!--    =========== SLIDE SHOW ===========-->
-    <div class="col-12 col-sm-8 slideEstate">
+    <div class="col-12 col-md-8 slideEstate">
       <ngb-carousel>
         <ng-template ngbSlide>
           <img src="./assets/images/homecover1.jpg" alt="Delhi Metro">
@@ -31,7 +32,7 @@
     </div>
 
     <!--    ============= FORM ============-->
-    <div class="col-12 col-sm-4 formEstate  ">
+    <div class="col-12 col-md-4 formEstate  ">
       <form>
         <h3>More about this property</h3>
         <div class="form-group">
@@ -75,7 +76,7 @@
                      [content]="item"
                      [limit]="120"
                      [completeWords]="true">
-        
+
       </app-read-more>
 
     </div>
