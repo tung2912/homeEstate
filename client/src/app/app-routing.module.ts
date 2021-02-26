@@ -29,7 +29,8 @@ const ROUTES: Routes = [
   },
   {
     path: 'allEstate',
-    component: EstateAllComponent
+    component: EstateAllComponent},
+  {
     path: 'postEstate',
     component: PostEstateComponent
   },

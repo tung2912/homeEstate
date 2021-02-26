@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {TokenService} from './token.service';
 import {HttpClient} from '@angular/common/http';
-import {tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {Owner} from '../shared/models/owner.model';
 
 const URI = 'auth';
@@ -34,10 +34,7 @@ type OwnerData = Owner;
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(this.Token.loggedIn());
   private owner = new BehaviorSubject<OwnerData>(null);
-
-  authStatus = this.loggedIn.asObservable();
 
   constructor(
     private Token: TokenService,
@@ -45,15 +42,15 @@ export class AuthService {
   ) {
     // Fetch Owner Data From Local Storage While Service initial
     this.fetchOwnerFromLS();
-
   }
 
   get owner$(): Observable<OwnerData> {
     return this.owner;
   }
-
-  changeAuthStatus(value: boolean): void {
-    this.loggedIn.next(value);
+  get loggedIn$(): Observable<boolean> {
+    return this.owner$.pipe(
+      map(data => !!data)
+    );
   }
 
   fetchOwnerFromLS(): void {
@@ -79,5 +76,12 @@ export class AuthService {
 
   signUp(signUpData: SignUpRequest): Observable<any>{
     return this.http.post(`${URI}/register`, signUpData);
+  }
+
+  logOut(): void {
+    this.owner.next(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('owner');
+    localStorage.removeItem('loggedUser');
   }
 }

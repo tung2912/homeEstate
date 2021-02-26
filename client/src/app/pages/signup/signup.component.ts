@@ -69,7 +69,6 @@ export class SignupComponent implements OnInit {
 
   handleLogInSuccess(data): void {
     this.Token.handle(data.token);
-    this.Auth.changeAuthStatus(true);
     localStorage.setItem('loggedUser', data.owner.name);
     localStorage.setItem('owner', JSON.stringify(data.owner));
 
