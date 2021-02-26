@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Owner} from '../shared/models/owner.model';
 
-const URI = 'http://localhost:8000/api/auth';
+const URI = 'auth';
 
 interface LoginRequest {
   email: string;

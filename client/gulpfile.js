@@ -16,7 +16,7 @@ gulp.task('dist', function(done) {
     //get script tags that need to be injected into main laravel view
     var scripts = $('script').map(function(i, el) {
         var oldSrc =  $(el).attr('src');
-        $(el).attr('src', 'client/' + oldSrc)
+        $(el).attr('src', '' + oldSrc)
         return $('<div>').append($(el)).html();
     }).toArray();
 
@@ -26,7 +26,7 @@ gulp.task('dist', function(done) {
         // return $(el).attr('href').indexOf('bundle.css') > -1;
     }).map(function(i, el) {
         var oldSrc =  $(el).attr('href');
-        $(el).attr('src', 'client/' + oldSrc)
+        $(el).attr('src', '' + oldSrc)
         return $('<div>').append($(el)).html();
     }).toArray();
 
@@ -39,9 +39,9 @@ gulp.task('dist', function(done) {
     var cssReplaceStr = '{{--angular styles begin--}}' + "\n\t\t" + styles.join("\n\t\t") + "\n\t\t{{--angular styles end--}}";
 
     //replace app stylesheet links and js script tags with new ones
-    var content = fs.readFileSync('./../server/resources/views/client.blade.php', 'utf8');
+    var content = fs.readFileSync('./../server/resources/views/client-app.blade.php', 'utf8');
     content = content.replace(jsSearch, jsReplaceStr).replace(cssSearch, cssReplaceStr);
 
-    fs.writeFileSync('./../server/resources/views/client.blade.php', content, 'utf8');
+    fs.writeFileSync('./../server/resources/views/client-app.blade.php', content, 'utf8');
     done();
 });

@@ -12,13 +12,14 @@ import { EstateDetailComponent } from './pages/estate-detail/estate-detail.compo
 import  {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import {AwesomeService} from './services/awesome.service';
 import {TokenService} from './services/token.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ApiInterceptor } from './interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,15 @@ import { SignupComponent } from './pages/signup/signup.component';
     FontAwesomeModule
 
   ],
-  providers: [AwesomeService, TokenService],
+  providers: [
+    AwesomeService,
+    TokenService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
