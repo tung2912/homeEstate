@@ -20,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
+import {EstateDetailModule} from "./pages/estate-detail/estate-detail.module";
 
 @NgModule({
   declarations: [
@@ -30,20 +31,21 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     ProfileComponent,
     SignupComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgBootstrapFormValidationModule.forRoot(),
-    NgBootstrapFormValidationModule,
-    FontAwesomeModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        NgBootstrapFormValidationModule.forRoot(),
+        NgBootstrapFormValidationModule,
+        FontAwesomeModule,
+        EstateDetailModule
 
-  ],
+    ],
   providers: [
     AwesomeService,
     TokenService,
