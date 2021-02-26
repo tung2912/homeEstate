@@ -20,7 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
-import {EstateDetailModule} from "./pages/estate-detail/estate-detail.module";
+import {EstateDetailModule} from './pages/estate-detail/estate-detail.module';
+import { EstateFilterComponent } from './pages/estate-filter/estate-filter.component';
+import { EstateAllComponent } from './pages/estate-all/estate-all.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {EstateDetailModule} from "./pages/estate-detail/estate-detail.module";
     EstateDetailComponent,
     ProfileComponent,
     SignupComponent,
+    EstateFilterComponent,
+    EstateAllComponent,
   ],
     imports: [
         BrowserModule,
