@@ -21,9 +21,8 @@ const ROUTES: Routes = [
     loadChildren: () => import('./pages/estates/estates.module').then(m => m.EstatesModule)
   },
   {
-    path: 'estateDetail',
+    path: 'estateDetail/:id',
     component: EstateDetailComponent
-
   },
   {
     path: 'profile',

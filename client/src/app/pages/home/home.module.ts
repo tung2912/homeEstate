@@ -4,6 +4,7 @@ import { BannerComponent } from './banner/banner.component';
 import { EstatesListComponent } from './estates-list/estates-list.component';
 import {HomeComponent} from './home.component';
 import {HighlightsBlogsModule} from '../../shared/components/highlights-blogs/highlights-blogs.module';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -13,9 +14,10 @@ import {HighlightsBlogsModule} from '../../shared/components/highlights-blogs/hi
     EstatesListComponent,
     HomeComponent
   ],
-  imports: [
-    CommonModule,
-    HighlightsBlogsModule
-  ]
+    imports: [
+        CommonModule,
+        HighlightsBlogsModule,
+        RouterModule
+    ]
 })
 export class HomeModule { }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from "rxjs";
-import {Estate} from "../shared/models/estates.model";
+import {BehaviorSubject, Observable} from 'rxjs';
 
-const API = "estate/";
+
+const API = 'estate/';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,12 @@ const API = "estate/";
 export class EstateService {
 
   constructor(private http: HttpClient) { }
-
-  getAll() {
+  getAll(): Observable<object> {
     return this.http.get(`${API}listEstate`);
+  }
+
+  getById(id) {
+    return this.http.get(`${API}detail/${id}`);
   }
 
 }
