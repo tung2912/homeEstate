@@ -23,6 +23,7 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
 import {EstateDetailModule} from './pages/estate-detail/estate-detail.module';
 import { EstateFilterComponent } from './pages/estate-filter/estate-filter.component';
 import { EstateAllComponent } from './pages/estate-all/estate-all.component';
+import { PostEstateComponent } from './pages/post-estate/post-estate.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EstateAllComponent } from './pages/estate-all/estate-all.component';
     SignupComponent,
     EstateFilterComponent,
     EstateAllComponent,
+    PostEstateComponent,
   ],
     imports: [
         BrowserModule,

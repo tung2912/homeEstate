@@ -1,0 +1,63 @@
+#postEstate {
+  margin: 10rem 7rem 0 7rem;
+
+  padding: 3rem;
+
+  border: 1px solid grey;
+  border-radius: 17px;
+
+  h1 {
+    border-left: 4px solid cornflowerblue;
+    padding: 1rem;
+
+    font-weight: 500;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+  }
+
+  input, select {
+    height: 3rem;
+
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 2rem;
+
+    padding: 1rem 2rem;
+
+    letter-spacing: 1px;
+
+    border-radius: 17px;
+  }
+
+
+}
+
+
+@media screen and (max-width: 676px) {
+
+  #postEstate {
+    padding: 1rem;
+
+    margin-right: 1.5rem ;
+    margin-left: 1.5rem ;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 1.5rem;
+    }
+  }
+
+
+}
