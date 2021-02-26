@@ -15,13 +15,14 @@
         <ul>
           <li><a routerLink="" data-after="Home">Home</a></li>
           <li><a  routerLink="estatesList" data-after="Home">Buy a Home</a></li>
-          <li><a routerLink="estateDetail" data-after="Blogs">Blogs</a></li>
+          <li><a data-after="Blogs">Blogs</a></li>
           <li style="cursor: pointer">
             <a  id="loginLogout" *ngIf="!loggedIn"  (click)="open(content)" data-after="Clients">Sign up or Login</a>
             <div class="submenu"  *ngIf="loggedIn">
               <a  class="dropdown__btn"><fa-icon [icon]="faUser"></fa-icon> {{ownerName$ | async}}</a>
               <div class="dropdown__content">
                 <a class="dropdown__item" (click)="goProfile()">Profile</a>
+                <a class="dropdown__item" routerLink="postEstate"  >Sell your house</a>
                 <a class="dropdown__item" (click)="logout($event)">Logout</a>
               </div>
             </div>
