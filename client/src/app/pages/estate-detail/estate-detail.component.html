@@ -2,16 +2,14 @@
   <!-- ======= ESTATE INFORMATION =====   -->
   <div class="row estate-info">
     <div class="col-8 estate-text" >
-      <p class="estate-price">$ 1,098,000</p>
-      <span> <i>3 </i>Bed</span>
-      <span> <i>2 </i>Bath</span>
-      <span> <i>3.555 </i>sqft</span>
-      <span> <i>Address:</i> 447 Girard St, San Francisco, CA, 94134</span>
+      <p class="estate-price">$ {{estate.price}}</p>
+      <span> <i>{{estate.bedroom_nums}} </i>Bed</span>
+      <span> <i>{{estate.bathroom_nums}} </i>Bath</span>
+      <span> <i>{{estate.floor_space}} </i>sqft</span>
+      <span> <i>Address:</i> {{estate.address}}</span>
     </div>
-
   </div>
   <div class="row">
-
     <!--    =========== SLIDE SHOW ===========-->
     <div class="col-12 col-sm-8 slideEstate">
       <ngb-carousel>
