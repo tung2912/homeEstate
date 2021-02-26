@@ -9,7 +9,9 @@ import {EstatesComponent} from './pages/estates/estates.component';
 import {EstateDetailComponent} from './pages/estate-detail/estate-detail.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import {EstateAllComponent} from './pages/estate-all/estate-all.component';
 import {PostEstateComponent} from  './pages/post-estate/post-estate.component';
+
 
 
 const ROUTES: Routes = [
@@ -26,6 +28,8 @@ const ROUTES: Routes = [
     component: EstateDetailComponent
   },
   {
+    path: 'allEstate',
+    component: EstateAllComponent
     path: 'postEstate',
     component: PostEstateComponent
   },

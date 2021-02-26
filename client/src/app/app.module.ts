@@ -21,6 +21,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import {EstateDetailModule} from './pages/estate-detail/estate-detail.module';
+import { EstateFilterComponent } from './pages/estate-filter/estate-filter.component';
+import { EstateAllComponent } from './pages/estate-all/estate-all.component';
 import { PostEstateComponent } from './pages/post-estate/post-estate.component';
 
 @NgModule({
@@ -31,6 +33,8 @@ import { PostEstateComponent } from './pages/post-estate/post-estate.component';
     EstateDetailComponent,
     ProfileComponent,
     SignupComponent,
+    EstateFilterComponent,
+    EstateAllComponent,
     PostEstateComponent,
   ],
     imports: [

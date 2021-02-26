@@ -76,3 +76,15 @@
 
 
 }
+
+.showMore {
+  margin-top: 1rem;
+  .showMoreBtn {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 1.5rem !important;
+  }
+  .showMoreBtn:hover {
+    text-decoration: underline;
+  }
+}

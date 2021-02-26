@@ -26,6 +26,9 @@ Route::middleware('api')->prefix('auth')->group(function(){
 });
 
 Route::prefix('estate')->group(function () {
-    Route::get('listEstate',[EstateController::class,'apiEstateList']);
+    Route::get('listNewestEstate',[EstateController::class,'apiNewEstEstate']);
     Route::get('detail/{estate_id}',[EstateController::class,'apiEstateDetail']);
+    Route::get('listEstateAroundMillion',[EstateController::class,'apiEstateAroundMillion']);
+    Route::get('listEstateAffordable',[EstateController::class,'apiEstateAffordable']);
+    Route::get('ListEstateLuxury',[EstateController::class,'apiEstateLuxury']);
 });

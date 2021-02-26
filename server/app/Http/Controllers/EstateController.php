@@ -56,8 +56,8 @@ class EstateController extends Controller
 
     //For client
 
-    public function apiEstateList() {
-        return response()->json(Estate::all(),200);
+    public function apiNewEstEstate() {
+        return response()->json(Estate::orderBy('created_at', 'ASC')->limit(10)->get(),200);
     }
 
     public function apiEstateDetail($id) {
@@ -68,6 +68,21 @@ class EstateController extends Controller
         }
 
         return response()->json($estate, 200);
+    }
+
+    public function apiEstateAroundMillion() {
+        $estates = Estate::whereBetween('price',[500000,1000000])->get();
+        return response()->json($estates,200);
+    }
+
+    public  function apiEstateAffordable() {
+        $estates = Estate::where('price', '<=', 500000)->get();
+        return response()->json($estates,200);
+    }
+
+    public function apiEstateLuxury() {
+        $estates = Estate::where('price','>',1500000)->get();
+        return response()->json($estates, 200);
     }
 
 
