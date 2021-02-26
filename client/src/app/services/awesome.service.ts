@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AwesomeService {
 
-  private URI = 'http://localhost:8000/api/auth';
+  private URI = 'auth';
 
   constructor(
     private http: HttpClient
