@@ -62,12 +62,13 @@ class EstateController extends Controller
 
     public function apiEstateDetail($id) {
         $estate = Estate::find($id);
+        $city = $estate->city;
 
         if(is_null($estate)) {
             return response()->json(['message' => 'Estate not found'], 404);
         }
 
-        return response()->json($estate, 200);
+        return response()->json([$estate, $city], 200);
     }
 
     public function apiEstateAroundMillion() {
