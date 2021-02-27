@@ -56,8 +56,15 @@ class EstateController extends Controller
 
     //For client
 
-    public function apiEstateList() {
-        return response()->json(Estate::all(),200);
+    public function apiNewEstEstate() {
+        $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
+        return response()->json($estates,200);
     }
 
     public function apiEstateDetail($id) {
@@ -76,6 +83,37 @@ class EstateController extends Controller
         $estateResult = Estate::where('city_name', 'LIKE', '%' . $request . '%')->get();
 
         return response()->json($estateResult, 200);
+    public function apiEstateAroundMillion() {
+        $estates = Estate::whereBetween('price',[500000,1000000])->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
+        return response()->json($estates,200);
+    }
+
+    public  function apiEstateAffordable() {
+        $estates = Estate::where('price', '<=', 500000)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
+        return response()->json($estates,200);
+    }
+
+    public function apiEstateLuxury() {
+        $estates = Estate::where('price','>=',1500000)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
+        return response()->json($estates, 200);
     }
 
 

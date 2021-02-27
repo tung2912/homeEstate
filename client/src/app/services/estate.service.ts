@@ -11,11 +11,23 @@ const API = 'estate/';
 export class EstateService {
 
   constructor(private http: HttpClient) { }
-  getAll(): Observable<object> {
-    return this.http.get(`${API}listEstate`);
+  getNewest(): Observable<object> {
+    return this.http.get(`${API}listNewestEstate`);
   }
 
-  getById(id) {
+  getAroundMillion(): Observable<object> {
+    return this.http.get(`${API}listEstateAroundMillion`);
+  }
+
+  getAffordable(): Observable<object> {
+    return this.http.get(`${API}listEstateAffordable`);
+  }
+
+  getLuxury(): Observable<object> {
+    return this.http.get(`${API}ListEstateLuxury`);
+  }
+
+  getById(id): Observable<object> {
     return this.http.get(`${API}detail/${id}`);
   }
 

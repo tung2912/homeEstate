@@ -17,7 +17,7 @@
           <li><a  routerLink="estatesList" data-after="Home">Buy a Home</a></li>
           <li><a data-after="Blogs">Blogs</a></li>
           <li style="cursor: pointer">
-            <a  id="loginLogout" *ngIf="!loggedIn"  (click)="open(content)" data-after="Clients">Sign up or Login</a>
+            <a  id="loginLogout" *ngIf="!loggedIn" (click)="open(content)">Sign up or Login</a>
             <div class="submenu"  *ngIf="loggedIn">
               <a  class="dropdown__btn"><fa-icon [icon]="faUser"></fa-icon> {{ownerName$ | async}}</a>
               <div class="dropdown__content">

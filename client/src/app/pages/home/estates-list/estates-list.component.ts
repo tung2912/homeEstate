@@ -9,14 +9,17 @@ import {EstateService} from '../../../services/estate.service';
 })
 export class EstatesListComponent implements OnInit {
 
-  estatesList: Estate[]|any = [];
+  newestEstatesList: Estate[]|any = [];
+  estateNums: any = null;
+  more: boolean;
 
   constructor(private estateService: EstateService) { }
 
   ngOnInit(): void {
-    this.estateService.getAll().subscribe(
-      res => {
-        this.estatesList = res;
+    this.estateService.getNewest().subscribe(
+      (res: any) => {
+        this.newestEstatesList = res;
+        this.estateNums = res.length;
       }
     );
   }

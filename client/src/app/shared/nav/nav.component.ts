@@ -34,11 +34,9 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.Auth.loggedIn$.subscribe(res => this.loggedIn = res);
 
     this.token = localStorage.getItem('token');
-    this.Auth.authStatus.subscribe(
-      value => this.loggedIn = value
-    );
 
     this.formLogin = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -111,7 +109,6 @@ export class NavComponent implements OnInit, AfterViewInit {
 
   handleLogInSuccess(data): void {
     this.Token.handle(data.token);
-    this.Auth.changeAuthStatus(true);
     localStorage.setItem('loggedUser', data.owner.name);
     localStorage.setItem('owner', JSON.stringify(data.owner));
 
@@ -124,10 +121,7 @@ export class NavComponent implements OnInit, AfterViewInit {
 
   logout(event: MouseEvent): void {
     event.preventDefault();
-    this.Token.remove();
-    localStorage.removeItem('loggedUser');
-    localStorage.removeItem('owner');
-    this.Auth.changeAuthStatus(false);
+    this.Auth.logOut();
     this.router.navigateByUrl('');
   }
 
