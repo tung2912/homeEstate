@@ -28,4 +28,5 @@ Route::middleware('api')->prefix('auth')->group(function(){
 Route::prefix('estate')->group(function () {
     Route::get('listEstate',[EstateController::class,'apiEstateList']);
     Route::get('detail/{estate_id}',[EstateController::class,'apiEstateDetail']);
+    Route::post('search/{request}', [EstateController::class, 'searchEstatesByCity']);
 });
