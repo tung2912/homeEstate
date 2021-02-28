@@ -24,6 +24,7 @@ import {EstateDetailModule} from './pages/estate-detail/estate-detail.module';
 import { EstateFilterComponent } from './pages/estate-filter/estate-filter.component';
 import { EstateAllComponent } from './pages/estate-all/estate-all.component';
 import { PostEstateComponent } from './pages/post-estate/post-estate.component';
+import { ResultSearchComponent } from './pages/result-search/result-search.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PostEstateComponent } from './pages/post-estate/post-estate.component';
     EstateFilterComponent,
     EstateAllComponent,
     PostEstateComponent,
+    ResultSearchComponent,
   ],
     imports: [
         BrowserModule,

@@ -5,6 +5,7 @@ import { EstatesListComponent } from './estates-list/estates-list.component';
 import {HomeComponent} from './home.component';
 import {HighlightsBlogsModule} from '../../shared/components/highlights-blogs/highlights-blogs.module';
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -17,7 +18,8 @@ import {RouterModule} from "@angular/router";
     imports: [
         CommonModule,
         HighlightsBlogsModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ]
 })
 export class HomeModule { }

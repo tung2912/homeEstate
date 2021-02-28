@@ -31,4 +31,8 @@ export class EstateService {
     return this.http.get(`${API}detail/${id}`);
   }
 
+  getEstatesBySearch(searchValue): Observable<object> {
+    return this.http.get(`${API}search/${searchValue}`);
+  }
+
 }
