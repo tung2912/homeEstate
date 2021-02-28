@@ -3,7 +3,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {Estate} from '../../shared/models/estates.model';
 import {EstateService} from '../../services/estate.service';
 import {ActivatedRoute} from '@angular/router';
-import {City} from "../../shared/models/city.model";
+import {City} from '../../shared/models/city.model';
 
 @Component({
   selector: 'app-estate-detail',
@@ -13,7 +13,7 @@ import {City} from "../../shared/models/city.model";
 export class EstateDetailComponent implements OnInit {
 
   estate: Estate = null;
-  city: City = null;
+  city: { make: string } = null;
 
   constructor(config: NgbCarouselConfig,
               private estateService: EstateService,
@@ -28,10 +28,14 @@ export class EstateDetailComponent implements OnInit {
   ngOnInit(): void {
     const id: number = +this.route.snapshot.paramMap.get('id');
 
+    // @ts-ignore
+    this.estate = {make: ''};
+
     this.estateService.getById(id).subscribe(
       (data: any) => {
         this.estate = data[0];
         this.city = data[1];
+        // console.log(data);
       }
     );
   }

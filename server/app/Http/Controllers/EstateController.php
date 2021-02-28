@@ -78,11 +78,8 @@ class EstateController extends Controller
         return response()->json([$estate, $city], 200);
     }
 
-    public function searchEstatesByCity(Request $request) {
 
-        $estateResult = Estate::where('city_name', 'LIKE', '%' . $request . '%')->get();
 
-        return response()->json($estateResult, 200);
     public function apiEstateAroundMillion() {
         $estates = Estate::whereBetween('price',[500000,1000000])->where('status','=', 2)->get();
 
@@ -114,6 +111,13 @@ class EstateController extends Controller
         }
 
         return response()->json($estates, 200);
+    }
+
+    public function searchEstatesByCity($searchValue) {
+
+        $estateResult = Estate::where("city_name", "like", "%" . $searchValue . "%")->get();
+
+        return response()->json($estateResult, 200);
     }
 
 

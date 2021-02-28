@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Estate} from '../../shared/models/estates.model';
 import {EstateService} from '../../services/estate.service';
-import {City} from "../../shared/models/city.model";
+import {City} from '../../shared/models/city.model';
 
 @Component({
   selector: 'app-estates',

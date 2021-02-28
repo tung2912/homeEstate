@@ -6,8 +6,8 @@
       <h1 class="banner-title">Discover a place you'll love to live</h1>
 
       <div class="banner-search">
-        <form action="#">
-          <input type="text" placeholder="Search for City..." name="search">
+        <form method="get" (submit)="searchEstates()">
+          <input [(ngModel)]="searchValue"  type="text" placeholder="Search for City..." name="searchValue">
           <button  type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
