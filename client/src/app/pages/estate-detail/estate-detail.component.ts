@@ -20,7 +20,6 @@ export class EstateDetailComponent implements OnInit {
   formSubscribe: FormGroup;
   estate: Estate = null;
   owner: Owner;
-  city: { make: string } = null;
 
   constructor(config: NgbCarouselConfig,
               private estateService: EstateService,
@@ -46,8 +45,7 @@ export class EstateDetailComponent implements OnInit {
 
     this.estateService.getById(id).subscribe(
       (data: any) => {
-        this.estate = data[0];
-        this.city = data[1];
+        this.estate = data.estate;
         // console.log(data);
       }
     );

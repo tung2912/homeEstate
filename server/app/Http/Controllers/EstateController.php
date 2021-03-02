@@ -160,9 +160,12 @@ class EstateController extends Controller
     }
     public function searchEstatesByCity($searchValue) {
 
-        $estateResult = Estate::where("city_name", "like", "%" . $searchValue . "%")->get();
 
-        return response()->json($estateResult, 200);
+        $estates = Estate::all();
+        foreach($estates as $estate) {
+            $result =  $estate->city->where("name", "like", "%" . $searchValue . "%")->get();
+            return response()->json($result);
+        }
     }
 
 

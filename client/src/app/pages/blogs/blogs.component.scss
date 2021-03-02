@@ -4,6 +4,18 @@
   margin-left: 1rem;
   margin-right: 1rem;
 
+  .blogIcon {
+    background-color: #eae4e4;
+    font-size: large;
+    padding: 1rem;
+
+    border-radius: 3px;
+
+    i {
+      padding-right: 1rem;
+    }
+  }
+
   /* Create two unequal columns that floats next to each other */
   /* Left column */
   .leftColumn {

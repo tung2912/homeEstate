@@ -35,6 +35,8 @@ Route::prefix('estate')->group(function () {
     Route::get('listEstateAffordable',[EstateController::class,'apiEstateAffordable']);
     Route::get('ListEstateLuxury',[EstateController::class,'apiEstateLuxury']);
     Route::post('createEstate',[EstateController::class,'apiUploadEstate']);
+    Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
+
 });
 
 Route::prefix('cities')->group(function () {
@@ -44,7 +46,6 @@ Route::prefix('cities')->group(function () {
 Route::prefix('subscribes')->group(function (){
     Route::post('subForOwner',[SubscribeController::class,'apiAddSubForOwner']);
     Route::post('subForClient',[SubscribeController::class,'apiAddSubForClient']);
-    Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
 
 });
 
