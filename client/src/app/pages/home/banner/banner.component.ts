@@ -19,10 +19,9 @@ export class BannerComponent implements OnInit {
   searchEstates() {
     this.estateService.getEstatesBySearch(this.searchValue).subscribe(
       data => {
-        // @ts-ignore
-        this.listSearch = data;
-        // console.log(data);
-        this.router.navigateByUrl('resultSearch', { state: this.listSearch});
+        this.router.navigateByUrl('resultSearch', { state: {
+          listSearch: data
+        }});
       }
     );
   }

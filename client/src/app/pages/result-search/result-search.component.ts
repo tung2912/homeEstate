@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ResultSearchComponent implements OnInit {
 
-  listSearch: Estate[]=[];
+  listSearch: Estate[]  = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     // console.log(this.router.getCurrentNavigation().extras.state);
@@ -18,9 +18,8 @@ export class ResultSearchComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
-    console.log(history.state);
-    this.listSearch = history.state;
-    this.listSearch = Object.values(this.listSearch);
+    this.listSearch = history.state.listSearch;
+    this.listSearch = Object.values(this.listSearch || []);
   }
 
 }
