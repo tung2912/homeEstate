@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EstateRequest;
 use App\Models\City;
 use App\Models\Client;
 use App\Models\Estate;
+use App\Models\Image;
 use App\Models\Income;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isNull;
 
 class EstateController extends Controller
@@ -57,6 +60,14 @@ class EstateController extends Controller
     //For client
 
     public function apiNewEstEstate() {
+        $estates = Estate::orderBy('created_at','ASC')->limit(10)->get();
+
+        foreach($estates as $estate) {
+            foreach($estate->images as $image) {
+                $estate->image = $image->url;
+            }
+        }
+        return response()->json(['estates'=>$estates]);
         $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
 
         foreach ($estates as $estate) {
@@ -113,6 +124,40 @@ class EstateController extends Controller
         return response()->json($estates, 200);
     }
 
+    public function apiUploadEstate(EstateRequest $request) {
+        $estate = Estate::create($request->all());
+
+        if ($request->hasFile('image1')) {
+            $pathImage = Storage::disk('s3')->put('images', $request->image1,'public');
+            // $image1 = $request->file('image1');
+            // $image1Name = $image1->getClientOriginalName();
+            // $image1Name = time(). '.' .$image1Name;
+            // $pathImage = $image1->storeAs('public',$image1Name, 's3');
+
+            Image::create([
+                'estate_id' => $estate->id,
+                'url' => $pathImage
+            ]);
+        }
+        if ($request->hasFile('image2')) {
+
+            $pathImage = Storage::disk('s3')->put('images', $request->image2,'public');
+            Image::create([
+                'estate_id' => $estate->id,
+                'url' => $pathImage
+            ]);
+        }
+        if ($request->hasFile('image3')) {
+
+            Storage::disk('s3')->put('images', $request->image3,'public');
+            Image::create([
+                'estate_id' => $estate->id,
+                'url' => $pathImage
+            ]);
+        }
+        return response()->json('ok');
+
+    }
     public function searchEstatesByCity($searchValue) {
 
         $estateResult = Estate::where("city_name", "like", "%" . $searchValue . "%")->get();

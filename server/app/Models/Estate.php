@@ -10,7 +10,7 @@ class Estate extends Model
     use HasFactory;
 
     protected $fillable = [
-      'client_id',
+      'owner_id',
       'city_id',
       'address',
       'price',

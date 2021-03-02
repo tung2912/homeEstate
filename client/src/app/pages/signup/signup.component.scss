@@ -1,5 +1,4 @@
 #signup {
-  background-color: #e2e0e0;
   //position: relative;
   margin-bottom: 10px;
 
@@ -8,8 +7,8 @@
 .signup {
 
   &__block {
-    top: 13vh;
-    left: 4%;
+    margin-top: 20vh;
+    margin-left: 6%;
     width: 91%;
     padding: 20px 10px;
     border:white;
@@ -19,8 +18,9 @@
   }
 
   &__title1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
+    text-align: center;
   }
   &__title2 {
     font-size: 1.7rem;
@@ -70,7 +70,7 @@
 @media screen and(min-width: 768px) {
   .signup__block {
     width: 700px;
-    left: 10%;
+    margin-left: 10%;
   }
   .signup__line {
     flex-direction: row;
@@ -86,7 +86,7 @@
 }
 @media screen and(min-width: 960px) {
   .signup__block {
-    left: 20%;
+    margin-left: 20%;
   }
 }
 

@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '0f57425f87487ddc597f161dab50fbe27462246f',
+    'reference' => '78e6b50374e54dae01378dce2c4a5f34e84f22cc',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -42,6 +42,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '8d8f88b3b3830916be94292c1fbce84433efb1aa',
+    ),
+    'aws/aws-sdk-php' => 
+    array (
+      'pretty_version' => '3.173.18',
+      'version' => '3.173.18.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0ac9f1d2778034a2ef0a2bb8e098818d7b1a76e8',
     ),
     'brick/math' => 
     array (
@@ -468,7 +477,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '0f57425f87487ddc597f161dab50fbe27462246f',
+      'reference' => '78e6b50374e54dae01378dce2c4a5f34e84f22cc',
     ),
     'laravel/sail' => 
     array (
@@ -515,6 +524,15 @@ private static $installed = array (
       ),
       'reference' => '9be3b16c877d477357c015cec057548cf9b2a14a',
     ),
+    'league/flysystem-aws-s3-v3' => 
+    array (
+      'pretty_version' => '1.0.29',
+      'version' => '1.0.29.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4e25cc0582a36a786c31115e419c6e40498f6972',
+    ),
     'league/mime-type-detection' => 
     array (
       'pretty_version' => '1.7.0',
@@ -548,6 +566,15 @@ private static $installed = array (
       array (
         0 => '^1.0',
       ),
+    ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
     ),
     'myclabs/deep-copy' => 
     array (
