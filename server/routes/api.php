@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\EstateController;
+use App\Http\Controllers\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,16 @@ Route::prefix('estate')->group(function () {
     Route::get('listEstateAroundMillion',[EstateController::class,'apiEstateAroundMillion']);
     Route::get('listEstateAffordable',[EstateController::class,'apiEstateAffordable']);
     Route::get('ListEstateLuxury',[EstateController::class,'apiEstateLuxury']);
+    Route::post('createEstate',[EstateController::class,'apiUploadEstate']);
+});
+
+Route::prefix('cities')->group(function () {
+    Route::get('all',[CityController::class,'apiAllCity']);
+});
+
+Route::prefix('subscribes')->group(function (){
+    Route::post('subForOwner',[SubscribeController::class,'apiAddSubForOwner']);
+    Route::post('subForClient',[SubscribeController::class,'apiAddSubForClient']);
     Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
 
 });

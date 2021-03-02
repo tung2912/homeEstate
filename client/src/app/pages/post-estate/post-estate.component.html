@@ -1,19 +1,17 @@
 <section id="postEstate">
-  <form>
+  <form [formGroup]="formPostEstate" (ngSubmit)="submitPostEstate()">
     <h1>What's the Address of the Home for Sale?</h1>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="address">Address:</label>
-        <input type="text" class="form-control" id="address" placeholder="Enter address">
+        <input type="text" class="form-control" id="address" placeholder="Enter address" formControlName="address">
       </div>
 
       <div class="form-group col-md-6">
         <label for="city">City:</label>
-        <select class="form-control" id="city">
-          <option>New York City</option>
-          <option>Chicago</option>
-          <option>San Francisco</option>
+        <select class="form-control" id="city" formControlName="city_id">
+            <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
         </select>
       </div>
     </div>
@@ -23,36 +21,48 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="price">Price ($):</label>
-        <input type="text" class="form-control" id="price" placeholder="Enter Price">
+        <input type="number" class="form-control" formControlName="price" id="price" placeholder="Enter Price">
       </div>
       <div class="form-group col-md-6">
         <label for="floor_space">Floor Space (sqft):</label>
-        <input type="text" class="form-control" id="floor_space" placeholder="Enter Floor Space">
+        <input type="number" class="form-control" formControlName="floor_space" id="floor_space" placeholder="Enter Floor Space">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="bed_nums">Bedrooms:</label>
-        <input type="number" class="form-control" id="bed_nums">
+        <input type="number" class="form-control" formControlName="bedroom_nums" id="bed_nums">
       </div>
       <div class="form-group col-md-4">
         <label for="bath_nums">Bathrooms:</label>
-        <input type="number" class="form-control" id="bath_nums">
+        <input type="number" class="form-control" formControlName="bathroom_nums" id="bath_nums">
       </div>
       <div class="form-group col-md-4">
         <label for="garage_nums">Garages:</label>
-        <input type="number" class="form-control" id="garage_nums">
+        <input type="number" class="form-control" formControlName="garage_nums" id="garage_nums">
       </div>
     </div>
 
     <h1>Describe Your Home:</h1>
     <div class="form-group">
-      <textarea class="form-control" id="description" rows="3"></textarea>
+      <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
     </div>
 
     <h1>Upload Your Home Photos:</h1>
-    <p>helooooooooooo</p>
+    <div class="form-group">
+      <label>Input Image 1</label>
+      <input type="file" accept=".png, .jpg, .jpeg" name="image1" (change)="onImg1Select($event)">
+    </div>
+    <div class="form-group">
+      <label>Input Image 2</label>
+      <input type="file" accept=".png, .jpg, .jpeg" name="image2" (change)="onImg2Select($event)">
+    </div>
+    <div class="form-group">
+      <label>Input Image 3</label>
+      <input type="file" accept=".png, .jpg, .jpeg" name="image3" (change)="onImg3Select($event)">
+    </div>
+    <input type="hidden" formControlName="owner_id" value="{{owner.id}}">
 
     <button type="submit" class="btn btn-primary">ConFirm</button>
   </form>
