@@ -18,8 +18,10 @@ export class EstatesListComponent implements OnInit {
   ngOnInit(): void {
     this.estateService.getNewest().subscribe(
       (res: any) => {
-        this.newestEstatesList = res;
-        this.estateNums = res.length;
+        console.log(res.estates);
+        console.log(res);
+        this.newestEstatesList = res.estates;
+        this.estateNums = res.estates.length;
       }
     );
   }
