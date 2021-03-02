@@ -7,19 +7,19 @@
 
       <div class="info">Homes for sale</div>
     </div>
-<!--    -->
+    <!--    -->
     <div class="col">
       <div class="number">2</div>
 
       <div class="info">Open houses</div>
     </div>
-<!---->
+    <!---->
     <div class="col">
       <div class="number">3.784</div>
 
       <div class="info">Recently sold</div>
     </div>
-<!---->
+    <!---->
     <div class="col">
       <div class="number">161</div>
 
@@ -28,76 +28,42 @@
 
   </div>
 
-  <div class="blog">
-    <img src="https://rdcnewscdn.realtor.com/wp-content/uploads/2015/12/pelicans-padre-island-tx-cover-2-16.jpg" alt="">
+  <!-- TREND BLOG -->
+  <a routerLink="trend">
+    <div class="blog">
 
-    <div class="blog_info">
+      <img src="assets/images/trend5.jpg" alt="">
+      <div class="blog_info">
         <p>Trends</p>
 
         <h3>Most Affordable (and Warm) Places to WFH This Winter</h3>
 
         <a href="#">Read More</a>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 
 <section id="blogList">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-3 ">
-      <div class="card">
-        <div class="imgBlog">
-          <img class="card-img-top" src="https://rdcnewscdn.realtor.com/wp-content/uploads/2017/11/VA-loan-big-move-436x236.jpg" alt="Card image cap">
-        </div>
+    <div class="col-12 col-sm-6 col-md-3 " *ngFor="let blog of newBlog">
+      <a [routerLink]="['/blogDetail/',blog.id]">
+        <div class="card">
+          <div class="imgBlog">
+            <img class="card-img-top"
+                 src="https://rdcnewscdn.realtor.com/wp-content/uploads/2017/11/VA-loan-big-move-436x236.jpg"
+                 alt="Card image cap">
+          </div>
 
-        <div class="card-body">
-          <p class="card-blog">
-            5 Things You Didn’t Know a VA Loan Could Do for You
-          </p>
+          <div class="card-body">
+            <p class="card-blog">
+              {{blog.title}}
+            </p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-    <!--    -->
-    <div class="col-12 col-sm-6 col-md-3 ">
-      <div class="card">
-        <div class="imgBlog">
-          <img class="card-img-top" src="https://rdcnewscdn.realtor.com/wp-content/uploads/2017/11/VA-loan-big-move-436x236.jpg" alt="Card image cap">
-        </div>
 
-        <div class="card-body">
-          <p class="card-blog">
-            5 Things You Didn’t Know a VA Loan Could Do for You
-          </p>
-        </div>
-      </div>
-    </div>
-<!--    -->
-    <div class="col-12 col-sm-6 col-md-3 ">
-      <div class="card">
-        <div class="imgBlog">
-          <img class="card-img-top" src="https://rdcnewscdn.realtor.com/wp-content/uploads/2017/11/VA-loan-big-move-436x236.jpg" alt="Card image cap">
-        </div>
-
-        <div class="card-body">
-          <p class="card-blog">
-            5 Things You Didn’t Know a VA Loan Could Do for You
-          </p>
-        </div>
-      </div>
-    </div>
-<!--    -->
-    <div class="col-12 col-sm-6 col-md-3 ">
-      <div class="card">
-        <div class="imgBlog">
-          <img class="card-img-top" src="https://rdcnewscdn.realtor.com/wp-content/uploads/2017/11/VA-loan-big-move-436x236.jpg" alt="Card image cap">
-        </div>
-
-        <div class="card-body">
-          <p class="card-blog">
-            5 Things You Didn’t Know a VA Loan Could Do for You
-          </p>
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -105,29 +71,29 @@
 <!--==================TWO BLOG ===========================-->
 <section id="twoBlogs">
   <div class="row">
-    <div class="col-12 col-sm-6 blog-img">
-      <img src="https://static.rdc.moveaws.com/images/hero/hp-hero-mortgage-desktop.jpg" alt="">
+    <div class="col-12 col-sm-6 blog-img" routerLink="financePage/1">
+      <img src="assets/images/blogLeft.jpg" alt="">
     </div>
-
-    <div class="col-12 col-sm-6 blog-info">
+    <div class="col-12 col-sm-6 blog-info" routerLink="financePage/1">
       <div class="header">
-      <h3>Need a home loan? Get pre-approved</h3>
-      <p>Find a lender who can offer competitive mortgage rates and help you with pre-approval.</p>
-      <span class="discoveringBtn">Discovering Now</span>
+        <h3>What Is a Micromortgage? </h3>
+        <p>The Loan That Can Help You Buy a Home With Zero Down Payment</p>
+        <span class="discoveringBtn">Discovering Now</span>
       </div>
     </div>
-<!---->
-    <div class="w-100 d-none d-md-block"></div>
-<!--    -->
 
-    <div class="col-12 col-sm-6 order-last blog-img">
-      <img src="https://static.rdc.moveaws.com/images/hero/hp-hero-mortgage-desktop.jpg" alt="">
+    <!---->
+    <div class="w-100 d-none d-md-block"></div>
+    <!--    -->
+
+    <div class="col-12 col-sm-6 order-last blog-img " routerLink="financePage/2">
+      <img src="assets/images/blogRight.jpg" alt="">
     </div>
-    <div class="col-12 col-sm-6 blog-info">
+    <div class="col-12 col-sm-6 blog-info" routerLink="financePage/2">
       <div class="header">
-      <h3>Need a home loan? Get pre-approved</h3>
-      <p>Find a lender who can offer competitive mortgage rates and help you with pre-approval.</p>
-      <span class="discoveringBtn">Discovering Now</span>
+        <h3>7 Tax Benefits of Owning a Home:</h3>
+        <p>A Complete Guide for Filing This Year</p>
+        <span class="discoveringBtn">Discovering Now</span>
       </div>
     </div>
 

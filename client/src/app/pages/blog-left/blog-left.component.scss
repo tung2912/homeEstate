@@ -1,0 +1,109 @@
+#blogLeft {
+  margin-top: 9rem;
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftColumn {
+    float: left;
+    width: 70%;
+
+    .title-blogLeft {
+      font-size: 3.2rem;
+      letter-spacing: 1px;
+
+      line-height: 50px;
+    }
+
+    h3 {
+      font-weight: bold;
+    }
+
+
+    p {
+      text-align: justify;
+    }
+
+    .imgLeftBlog {
+      width: 100%;
+      margin-bottom: 1rem;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  /* Right column */
+  .rightColumn {
+    float: left;
+    width: 30%;
+    padding-left: 20px;
+  }
+
+  .img-blog {
+    width: 100%;
+
+    img {
+      border-radius: 8px;
+      width: 100%;
+    }
+  }
+
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* popular blogs*/
+
+  .popular-blog {
+    padding: 20px;
+
+    .title-popularBlog {
+      font-size: 2.5rem;
+      font-weight: bolder;
+
+      letter-spacing: 2px;
+
+      border-bottom: 4px solid red;
+    }
+
+    .subtitle-popularBlog {
+      font-size: 1.5rem;
+
+    }
+
+    .date-blog {
+      margin-top: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  #blogLeft {
+    .leftColumn, .rightColumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+}

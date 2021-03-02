@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EstateController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SubscribeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,4 +46,11 @@ Route::prefix('subscribes')->group(function (){
     Route::post('subForClient',[SubscribeController::class,'apiAddSubForClient']);
     Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
 
+});
+
+Route::prefix('blog')->group(function () {
+    Route::get('allBlog', [BlogController::class, 'apiAllBlogs']);
+    Route::get('newBlog', [BlogController::class, 'apiNewBlogs']);
+    Route::get('popularBlog', [BlogController::class, 'apiOldBlogs']);
+    Route::get('detail/{blog_id}', [BlogController::class, 'apiBlogDetail']);
 });
