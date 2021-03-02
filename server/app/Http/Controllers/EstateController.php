@@ -60,15 +60,13 @@ class EstateController extends Controller
     //For client
 
     public function apiNewEstEstate() {
-        $estates = Estate::orderBy('created_at','ASC')->limit(10)->get();
+        $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
 
         foreach($estates as $estate) {
             foreach($estate->images as $image) {
                 $estate->image = $image->url;
             }
         }
-        return response()->json(['estates'=>$estates]);
-        $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
 
         foreach ($estates as $estate) {
             $city = $estate->city->name;
@@ -80,13 +78,14 @@ class EstateController extends Controller
 
     public function apiEstateDetail($id) {
         $estate = Estate::find($id);
-        $city = $estate->city;
+        $city = $estate->city->name;
+        $estate->city_name = $city;
 
         if(is_null($estate)) {
             return response()->json(['message' => 'Estate not found'], 404);
         }
 
-        return response()->json([$estate, $city], 200);
+        return response()->json(['estate'=>$estate], 200);
     }
 
 
@@ -124,7 +123,7 @@ class EstateController extends Controller
         return response()->json($estates, 200);
     }
 
-    public function apiUploadEstate(EstateRequest $request) {
+    public function apiUploadEstate(Request $request) {
         $estate = Estate::create($request->all());
 
         if ($request->hasFile('image1')) {
@@ -160,11 +159,10 @@ class EstateController extends Controller
     }
     public function searchEstatesByCity($searchValue) {
 
-
         $estates = Estate::all();
         foreach($estates as $estate) {
-            $result =  $estate->city->where("name", "like", "%" . $searchValue . "%")->get();
-            return response()->json($result);
+           $result =  $estate->city->where("name", "like", "%" . $searchValue . "%")->get();
+           return response()->json($result);
         }
     }
 

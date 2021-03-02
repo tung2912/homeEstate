@@ -20,6 +20,7 @@ export class EstateDetailComponent implements OnInit {
   formSubscribe: FormGroup;
   estate: Estate = null;
   owner: Owner;
+  city: City = null;
 
   constructor(config: NgbCarouselConfig,
               private estateService: EstateService,
@@ -47,6 +48,7 @@ export class EstateDetailComponent implements OnInit {
       (data: any) => {
         this.estate = data.estate;
         // console.log(data);
+        console.log(data);
       }
     );
 

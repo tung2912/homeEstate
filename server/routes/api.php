@@ -36,7 +36,6 @@ Route::prefix('estate')->group(function () {
     Route::get('ListEstateLuxury',[EstateController::class,'apiEstateLuxury']);
     Route::post('createEstate',[EstateController::class,'apiUploadEstate']);
     Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
-
 });
 
 Route::prefix('cities')->group(function () {

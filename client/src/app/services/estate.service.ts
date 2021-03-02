@@ -54,4 +54,5 @@ export class EstateService {
   getEstatesBySearch(searchValue): Observable<object> {
     return this.http.get(`${API}search/${searchValue}`);
   }
+
 }

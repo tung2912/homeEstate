@@ -22,7 +22,12 @@ export class EstatesComponent implements OnInit {
 
   ngOnInit(): void {
     this.estateService.getAroundMillion().subscribe(
-      data => this.aroundMillionEstateList = data
+      data => {
+        this.aroundMillionEstateList = data;
+        this.aroundMillionEstateList = Object.values(this.aroundMillionEstateList);
+        console.log(this.aroundMillionEstateList);
+      }
+    
     );
     this.estateService.getNewest().subscribe(
       data => this.newestEstatesList = data
