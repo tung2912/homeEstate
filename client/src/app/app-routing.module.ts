@@ -12,8 +12,13 @@ import {SignupComponent} from './pages/signup/signup.component';
 import {EstateAllComponent} from './pages/estate-all/estate-all.component';
 // tslint:disable-next-line:import-spacing
 import {PostEstateComponent} from  './pages/post-estate/post-estate.component';
+// tslint:disable-next-line:import-spacing
 import {ResultSearchComponent} from  './pages/result-search/result-search.component';
-
+import {BlogsComponent} from './pages/blogs/blogs.component';
+import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
+import {TrendPageComponent} from './pages/trend-page/trend-page.component';
+import {BlogLeftComponent} from './pages/blog-left/blog-left.component';
+import {BlogRightComponent} from './pages/blog-right/blog-right.component';
 
 
 const ROUTES: Routes = [
@@ -47,6 +52,26 @@ const ROUTES: Routes = [
   {
     path: 'resultSearch',
     component: ResultSearchComponent
+  },
+  {
+    path: 'blogs',
+    component: BlogsComponent
+  },
+  {
+    path: 'blogDetail/:id',
+    component: BlogDetailComponent
+  },
+  {
+    path: 'trend',
+    component: TrendPageComponent
+  },
+  {
+    path: 'financePage/1',
+    component: BlogLeftComponent
+  },
+  {
+    path: 'financePage/2',
+    component: BlogRightComponent
   }
 ];
 

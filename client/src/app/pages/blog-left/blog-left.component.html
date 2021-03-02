@@ -1,0 +1,90 @@
+<section id="blogLeft">
+  <div class="row">
+    <div class="leftColumn">
+
+      <h2 class="title-blogLeft">What Is a Micromortgage? The Loan That Can Help You Buy a Home With Zero Down
+        Payment</h2>
+      <div class="imgLeftBlog">
+        <img src="assets/images/blogLeft1.jpg" alt="">
+      </div>
+
+      <p>For many hopeful first-time home buyers, the barriers to purchasing a house are high.</p>
+      <p>If you're a potential home buyer and you qualify for a conventional loan, you still need thousands of dollars
+        in cash for a down payment, closing costs, and other expenses. If you have only limited credit, you may not
+        qualify for a mortgage at all.</p>
+      <p>In both cases, you may end up renting when you would rather build wealth by purchasing a home.</p>
+
+      <p>A micromortgage is a loan for $100,000 or less, and homes at this price point are still abundant in some
+        markets—including Louisville, KY, and southern Indiana, where the program is getting started.</p>
+
+      <p>“Renting similar homes is literally hundreds of dollars more per month" than buying, says Gabe del Rio,
+        president and CEO of the Homeownership Council of America.</p>
+
+      <h3>What exactly is a micromortgage?</h3>
+      <p>A micromortgage is a home loan for less than $100,000 says Laura Meadows, executive vice president of lending
+        at Fahe, a regional lender based in Kentucky that offers micromortgages. Unlike conventional or FHA loans,
+        micromortgages are 100% financed, which means there’s no down payment required.</p>
+
+      <p>The micromortgage program specifically focuses on small-dollar mortgages because many traditional lenders
+        prioritize larger loans, del Rio says.</p>
+      <p>“Loan officers are paid by a percentage of the loan amount, and it’s the same amount of work to do a $300,000
+        loan as it is to do a $70,000 loan,” he says. “The professionals that hold the gate to this business don’t have
+        a big incentive, frankly, to do that work.”</p>
+
+      <h3>Do micromortgages require a down payment?</h3>
+
+      <p>Unlike with FHA or conventional loans, you can take out a micromortgage with zero money down.</p>
+      <p>“We’re offering 100% financing, which you typically only find if you’re dealing with a USDA loan,” Meadows
+        says.</p>
+      <p>But USDA loans are available only to buyers in rural areas, which doesn’t help buyers in urban markets.
+        Micromortgages are the only fully financed loans available in urban areas, Meadows says.</p>
+
+      <h3>What are some other advantages of a micromortgage?</h3>
+      <p>Micromortgages don’t tack on extra fees for mortgage insurance, which home buyers are required to pay on FHA
+        loans and some conventional loans. This saves buyers money on their monthly mortgage payments.</p>
+      <p>The micromortgage program also allows buyers to use automated valuation models, or AVMs, in lieu of home
+        appraisals to determine the value of their property. This saves the borrower time and money: Rather than
+        spending $450 or $500 on an appraisal, home buyers spend only $20 or $30 on an AVM, del Rio says.</p>
+
+      <h3>How do interest rates compare with other types of loans?</h3>
+      <p>The interest rate on a micromortgage will be slightly higher than conventional loans, Meadows says. As of
+        mid-January, the micromortgage rate was 3.99%, compared with the national average of 2.79%.</p>
+
+      <p>But “when you consider the advantages and the additional credit risk we’re allowing for, that program is still
+        very affordable,” Meadows says.</p>
+
+      <p>For some buyers, it’s worth paying slightly more in interest to save money on mortgage insurance, down
+        payments, and fees.</p>
+
+      <h3>Where can I get a micromortgage?</h3>
+      <p>Right now, the pilot program is available only through Fahe for buyers in Jefferson County in Kentucky and
+        Floyd and Clark counties in Indiana. Eventually, the Homeownership Council of America hopes to extend the
+        program to other markets around the country where houses under $100,000 are still widely available.</p>
+
+      <p>“The plan is to evaluate this pilot over the next year, but we are making a pathway for other interested
+        lenders to enter the micromortgage marketplace,” del Rio says.</p>
+
+      <p>The council is currently in talks with lenders in Memphis, TN, about starting a micromortgage program
+        there.</p>
+
+    </div>
+    <!--    -->
+    <div class="rightColumn">
+
+      <div class="popular-blog">
+        <h3 class="title-popularBlog">Popular Post</h3>
+        <div class="card" *ngFor="let blog of popularBlogs">
+          <a [routerLink]="['/blogDetail/',blog.id]">
+            <h2 class="subtitle-popularBlog">{{blog.title}}</h2>
+            <div class="img-blog">
+              <img src="assets/images/homebanner1.jpg" alt="">
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>

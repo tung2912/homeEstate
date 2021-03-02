@@ -25,6 +25,12 @@ import { EstateFilterComponent } from './pages/estate-filter/estate-filter.compo
 import { EstateAllComponent } from './pages/estate-all/estate-all.component';
 import { PostEstateComponent } from './pages/post-estate/post-estate.component';
 import { ResultSearchComponent } from './pages/result-search/result-search.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { TrendPageComponent } from './pages/trend-page/trend-page.component';
+import { BlogLeftComponent } from './pages/blog-left/blog-left.component';
+import { BlogRightComponent } from './pages/blog-right/blog-right.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +44,11 @@ import { ResultSearchComponent } from './pages/result-search/result-search.compo
     EstateAllComponent,
     PostEstateComponent,
     ResultSearchComponent,
+    BlogsComponent,
+    BlogDetailComponent,
+    TrendPageComponent,
+    BlogLeftComponent,
+    BlogRightComponent,
   ],
     imports: [
         BrowserModule,
@@ -51,8 +62,8 @@ import { ResultSearchComponent } from './pages/result-search/result-search.compo
         NgBootstrapFormValidationModule.forRoot(),
         NgBootstrapFormValidationModule,
         FontAwesomeModule,
-        EstateDetailModule
-
+        EstateDetailModule,
+        CKEditorModule
     ],
   providers: [
     AwesomeService,
