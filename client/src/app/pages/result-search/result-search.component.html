@@ -1,5 +1,6 @@
 <section id="searchEstates">
-  <h1>Result: </h1>
+<div *ngIf="countResult>=1">
+  <h1>Result: {{countResult}}</h1>
   <div class="row">
     <div class="col-12 col-sm-6 col-md-3 mb-3" *ngFor="let estate of listSearch">
       <a [routerLink]="['/estateDetail/',estate.id]">
@@ -15,12 +16,16 @@
               <span  class="info"><b class="number">{{estate.bathroom_nums }}</b>  bath</span>
               <span  class="info"><b class="number">{{estate.floor_space}}</b>  sqft</span>
               <br>
-              <span>{{estate.address}}, {{estate.city_name}}</span>
+              <span>{{estate.address}}, {{estate.name}}</span>
             </p>
           </div>
         </div>
       </a>
     </div>
+  </div>
+</div>
+  <div class="noResult" *ngIf="countResult<1">
+    <img src="assets/images/noResult.jpg" alt="noResult">
   </div>
 
 

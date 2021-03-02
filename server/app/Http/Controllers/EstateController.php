@@ -157,13 +157,14 @@ class EstateController extends Controller
         return response()->json('ok');
 
     }
+
     public function searchEstatesByCity($searchValue) {
 
-        $estates = Estate::all();
-        foreach($estates as $estate) {
-           $result =  $estate->city->where("name", "like", "%" . $searchValue . "%")->get();
-           return response()->json($result);
-        }
+        $resultSearch = Estate::join( 'cities', 'estates.city_id', '=', 'cities.id' )
+            ->where( 'name', 'LIKE', '%'.$searchValue.'%' )
+            ->get();
+
+        return response()->json($resultSearch, 200);
     }
 
 

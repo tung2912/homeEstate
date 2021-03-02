@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ResultSearchComponent implements OnInit {
 
   listSearch: Estate[]  = [];
+  countResult = null;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     // console.log(this.router.getCurrentNavigation().extras.state);
@@ -20,6 +21,8 @@ export class ResultSearchComponent implements OnInit {
   ngOnInit() {
     this.listSearch = history.state.listSearch;
     this.listSearch = Object.values(this.listSearch || []);
+    // console.log(this.listSearch.length);
+    this.countResult = this.listSearch.length;
   }
 
 }
