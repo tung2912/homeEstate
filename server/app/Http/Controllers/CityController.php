@@ -64,4 +64,8 @@ class CityController extends Controller
         return redirect()->route('cities.index')->with('warning','Delete Successfully');
 
     }
+
+    public function apiAllCity() {
+        return response()->json(City::all(),200);
+    }
 }
