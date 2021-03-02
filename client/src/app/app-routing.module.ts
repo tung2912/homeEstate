@@ -10,7 +10,9 @@ import {EstateDetailComponent} from './pages/estate-detail/estate-detail.compone
 import {ProfileComponent} from './pages/profile/profile.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {EstateAllComponent} from './pages/estate-all/estate-all.component';
+// tslint:disable-next-line:import-spacing
 import {PostEstateComponent} from  './pages/post-estate/post-estate.component';
+import {ResultSearchComponent} from  './pages/result-search/result-search.component';
 
 
 
@@ -41,6 +43,10 @@ const ROUTES: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'resultSearch',
+    component: ResultSearchComponent
   }
 ];
 

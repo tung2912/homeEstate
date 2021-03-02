@@ -43,4 +43,6 @@ Route::prefix('cities')->group(function () {
 Route::prefix('subscribes')->group(function (){
     Route::post('subForOwner',[SubscribeController::class,'apiAddSubForOwner']);
     Route::post('subForClient',[SubscribeController::class,'apiAddSubForClient']);
+    Route::get('search/{searchValue}', [EstateController::class, 'searchEstatesByCity']);
+
 });

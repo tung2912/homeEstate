@@ -50,6 +50,8 @@ export class EstateService {
   postEstate(postEstateData: FormData): Observable<any> {
     return this.http.post(`${API}createEstate`, postEstateData);
 
+  getEstatesBySearch(searchValue): Observable<object> {
+    return this.http.get(`${API}search/${searchValue}`);
   }
 
 }

@@ -3,6 +3,7 @@ export interface Estate {
   owner_id: number;
   city_id: number;
   address: string;
+  city_name: string;
   price: number;
   floor_space: number;
   bedroom_nums: number;

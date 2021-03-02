@@ -1,8 +1,9 @@
 <section id="estateList">
   <h1>New Listings</h1>
+
   <div class="row" >
 
-    <div class="col-12 col-sm-6 col-md-3 " *ngFor="let estate of newestEstatesList | slice:0:(more ? undefined: 4)">
+    <div class="col-12 col-sm-6 col-md-3 mb-3" *ngFor="let estate of newestEstatesList | slice:0:(more ? undefined: 4)">
       <a [routerLink]="['/estateDetail/',estate.id]">
         <div class="card">
           <div class="imgEstate">
@@ -16,7 +17,7 @@
               <span  class="info"><b class="number">{{estate.bathroom_nums}}</b>  bath</span>
               <span  class="info"><b class="number">{{estate.floor_space}}</b>  sqft</span>
               <br>
-              <span>{{estate.address}}</span>
+              <span>{{estate.address}}, {{estate.city_name}}</span>
             </p>
           </div>
         </div>
@@ -25,5 +26,6 @@
   </div>
   <div class="showMore">
     <a class="showMoreBtn" (click)="more = !more">{{more ? 'Show Less': 'Show All'}} {{estateNums}} of this list</a>
+    <a class="showMoreBtn" (click)="more = !more">{{more ? 'Show Less': 'Show All'}}</a>
   </div>
 </section>

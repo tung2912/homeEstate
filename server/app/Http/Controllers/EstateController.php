@@ -68,30 +68,59 @@ class EstateController extends Controller
             }
         }
         return response()->json(['estates'=>$estates]);
+        $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
+        return response()->json($estates,200);
     }
 
     public function apiEstateDetail($id) {
         $estate = Estate::find($id);
+        $city = $estate->city;
 
         if(is_null($estate)) {
             return response()->json(['message' => 'Estate not found'], 404);
         }
 
-        return response()->json($estate, 200);
+        return response()->json([$estate, $city], 200);
     }
 
+
+
     public function apiEstateAroundMillion() {
-        $estates = Estate::whereBetween('price',[500000,1000000])->get();
+        $estates = Estate::whereBetween('price',[500000,1000000])->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
         return response()->json($estates,200);
     }
 
     public  function apiEstateAffordable() {
-        $estates = Estate::where('price', '<=', 500000)->get();
+        $estates = Estate::where('price', '<=', 500000)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
         return response()->json($estates,200);
     }
 
     public function apiEstateLuxury() {
-        $estates = Estate::where('price','>',1500000)->get();
+        $estates = Estate::where('price','>=',1500000)->where('status','=', 2)->get();
+
+        foreach ($estates as $estate) {
+            $city = $estate->city->name;
+            $estate->city_name = $city;
+        }
+
         return response()->json($estates, 200);
     }
 
@@ -129,6 +158,13 @@ class EstateController extends Controller
         return response()->json('ok');
 
     }
+    public function searchEstatesByCity($searchValue) {
+
+        $estateResult = Estate::where("city_name", "like", "%" . $searchValue . "%")->get();
+
+        return response()->json($estateResult, 200);
+    }
+
 
     //End for Client
 }

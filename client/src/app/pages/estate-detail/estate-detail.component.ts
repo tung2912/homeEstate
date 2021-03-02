@@ -9,6 +9,7 @@ import {AuthService} from '../../services/auth.service';
 import { pluck } from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SubscribeService} from '../../services/subscribe.service';
+import {City} from '../../shared/models/city.model';
 
 @Component({
   selector: 'app-estate-detail',
@@ -19,6 +20,7 @@ export class EstateDetailComponent implements OnInit {
   formSubscribe: FormGroup;
   estate: Estate = null;
   owner: Owner;
+  city: { make: string } = null;
 
   constructor(config: NgbCarouselConfig,
               private estateService: EstateService,
@@ -39,9 +41,14 @@ export class EstateDetailComponent implements OnInit {
 
     const id: number = +this.route.snapshot.paramMap.get('id');
 
+    // @ts-ignore
+    this.estate = {make: ''};
+
     this.estateService.getById(id).subscribe(
       (data: any) => {
-        this.estate = data;
+        this.estate = data[0];
+        this.city = data[1];
+        // console.log(data);
       }
     );
 
