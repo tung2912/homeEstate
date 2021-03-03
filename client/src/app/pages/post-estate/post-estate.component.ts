@@ -4,6 +4,8 @@ import {Owner} from '../../shared/models/owner.model';
 import {CityService} from '../../services/city.service';
 import {City} from '../../shared/models/city.model';
 import {EstateService} from '../../services/estate.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-estate',
@@ -16,7 +18,10 @@ export class PostEstateComponent implements OnInit {
   cities: City[]|null = [];
   image1: File = null;
 
-  constructor(private formBuilder: FormBuilder, private cityService: CityService, private estateService: EstateService) { }
+  constructor(private formBuilder: FormBuilder,
+              private cityService: CityService,
+              private estateService: EstateService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.cityService.getAll().subscribe(
@@ -95,7 +100,8 @@ export class PostEstateComponent implements OnInit {
 
     this.estateService.postEstate(formData).subscribe(
       res => {
-        console.log(res);
+        Swal.fire('Thank you...', 'Your estate posted succesfully!<br> We\'ll check it later', 'success');
+        this.router.navigateByUrl('');
       }
     );
   }

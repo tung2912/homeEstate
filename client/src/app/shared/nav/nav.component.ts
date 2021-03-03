@@ -9,6 +9,7 @@ import {AuthService} from '../../services/auth.service';
 import {faUser} from '@fortawesome/free-solid-svg-icons';
 import {Observable} from 'rxjs';
 import {pluck} from 'rxjs/operators';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class NavComponent implements OnInit, AfterViewInit {
   public formLogin: FormGroup;
   public error = null;
   public loggedIn: boolean;
+  submitted = false;
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
@@ -45,6 +47,7 @@ export class NavComponent implements OnInit, AfterViewInit {
 
 
   }
+
 
   get ownerName$(): Observable<string> {
     return this.Auth.owner$.pipe(
@@ -87,12 +90,24 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   submitLogin(): void {
+    // tslint:disable-next-line:forin
+    for (const i in this.formLogin.controls) {
+      this.formLogin.controls[i].markAsDirty();
+      this.formLogin.controls[i].updateValueAndValidity();
+    }
+
+    this.submitted = true;
+    if (this.formLogin.invalid) {
+      return;
+    }
+
     const {email, password} = this.formLogin.value;
 
     this.Auth.login(email, password).subscribe(
       data => {
         this.handleLogInSuccess(data);
         document.getElementById('clsBtn').click();
+        Swal.fire('Hello' + ' ' + data.owner.name + '!!!');
       },
       error => this.handleError(error)
     );

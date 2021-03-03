@@ -43,5 +43,13 @@ class ClientController extends Controller
         return view('admin.clients.ownerDetail', compact('subscribedByOwners', 'estatesOfOwners', 'owner'));
     }
 
+    public function apiGetOwnerDetail($owner_id) {
+        $subscribedByOwners = Subscribe::where('owner_id', $owner_id)->get();
+
+        $estatesOfOwners = Estate::where('owner_id', $owner_id)->get();
+
+        return response()->json(['SubByOwners'=>$subscribedByOwners, 'EstatesofOwners'=>$estatesOfOwners]);
+    }
+
 
 }

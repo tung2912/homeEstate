@@ -25,7 +25,6 @@ export class EstatesComponent implements OnInit {
       data => {
         this.aroundMillionEstateList = data;
         this.aroundMillionEstateList = Object.values(this.aroundMillionEstateList);
-        console.log(this.aroundMillionEstateList);
       }
     
     );

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EstateController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SubscribeController;
@@ -46,6 +47,10 @@ Route::prefix('subscribes')->group(function (){
     Route::post('subForOwner',[SubscribeController::class,'apiAddSubForOwner']);
     Route::post('subForClient',[SubscribeController::class,'apiAddSubForClient']);
 
+});
+
+Route::prefix('owner')->group(function(){
+    Route::get('ownerInfo/{owner_id}',[ClientController::class,'apiGetOwnerDetail']);
 });
 
 Route::prefix('blog')->group(function () {

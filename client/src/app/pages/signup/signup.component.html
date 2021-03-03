@@ -39,6 +39,9 @@
         <div class="text-danger" [hidden]="!error">
           {{error}}
         </div>
+        <div class="text-danger" *ngIf="formSignUp.invalid">
+          Please fill all fields
+        </div>
 
         <div class="signup__submit">
           <button type="submit" [disabled]="!formSignUp.valid"  class="signup__btn">Continue</button>

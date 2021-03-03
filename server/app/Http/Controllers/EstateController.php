@@ -60,7 +60,7 @@ class EstateController extends Controller
     //For client
 
     public function apiNewEstEstate() {
-        $estates = Estate::orderBy('created_at', 'ASC')->limit(10)->where('status','=', 2)->get();
+        $estates = Estate::orderBy('created_at', 'DESC')->limit(10)->where('status','=', 2)->get();
 
         foreach($estates as $estate) {
             foreach($estate->images as $image) {
