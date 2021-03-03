@@ -1,25 +1,101 @@
 
-<div id="profile">
-  <div class="profile">
-    <div class="profile__header">
-      <h1>User Profile</h1>
-    </div>
-    <div class="profile__body">
-      <div class="profile__info">
-        <span class="profile__tag">Email</span>
-        <p class="profile__detail">{{owner.email}}</p>
-      </div>
-      <div class="profile__info">
-        <span class="profile__tag">Phone</span>
-        <p class="profile__detail">{{owner.phone}}</p>
-      </div>
-      <div class="profile__info">
-        <span class="profile__tag">Address</span>
-        <p class="profile__detail">{{owner.address}}</p>
+
+<section id="profile">
+  <div class="row">
+    <div class="col-12">
+      <div class="card profile-card">
+        <div class="card-img-block">
+
+          <img class="img-fluid" src="assets/images/cloud.jpg" alt="CardImageCap">
+        </div>
+        <div class="card-body pt-5">
+          <img src="assets/images/user1.png" alt="profile-image" class="profile"/>
+
+          <h2>{{owner.name}}</h2>
+
+          <div class="user-container">
+            <div class="userInfo">
+              <div class="userInfo-container">
+                <div class="user-tag">Email:</div>
+                <div class="user-content">{{owner.email}}</div>
+              </div>
+
+              <div class="userInfo-container">
+                <div class="user-tag">Address:</div>
+                <div class="user-content">{{owner.address}}</div>
+              </div>
+
+              <div class="userInfo-container">
+                <div class="user-tag">Phone:</div>
+                <div class="user-content">{{owner.phone}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="profile__backBtn">
-    <a (click)="backToHome()" class="backBtn">Back </a>
-  </div>
-</div>
+
+<!--<!- POSTED ESTATES-->
+
+  <section id="postedEstates">
+    <h1>Posted Estates</h1>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Detail</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <hr>
+  <!--<!- Subscribing ESTATES-->
+
+  <section id="subscribedEstates">
+    <h1>Subscribed Estates</h1>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Detail</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+

@@ -1,0 +1,50 @@
+#privacyPolicy {
+  margin-top: 9rem;
+
+  .privacyHeader {
+    text-align: center;
+    letter-spacing: 2px;
+
+    font-size: 3rem;
+    font-weight: bold;
+
+    margin-bottom: 2rem;
+  }
+
+  .privacy-content {
+    margin-left: 25rem;
+    margin-right: 25rem;
+  }
+
+  span {
+    font-weight: 1000;
+  }
+
+  p {
+    font-size: 1.7rem;
+
+    text-align: justify;
+
+    line-height: 30px;
+  }
+
+  .subheader {
+    font-size: 2.5rem;
+    font-weight: bolder;
+  }
+
+  ul li {
+    font-size: 1.7rem;
+
+    line-height: 30px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #privacyPolicy {
+    .privacy-content {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+}
