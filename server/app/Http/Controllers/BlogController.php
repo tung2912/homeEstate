@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -66,7 +67,7 @@ class BlogController extends Controller
     function uploadImage1($obj, $request)
     {
         if ($request->hasfile('image1')) {
-            $pathImage = $request->file('image1')->store('public/images');
+            $pathImage = Storage::disk('s3')->put('images', $request->image1,'public');
             $obj->image1 = $pathImage;
         }
     }
@@ -74,7 +75,7 @@ class BlogController extends Controller
     function uploadImage2($obj, $request)
     {
         if ($request->hasfile('image2')) {
-            $pathImage = $request->file('image2')->store('public/images');
+            $pathImage = Storage::disk('s3')->put('images', $request->image2,'public');
             $obj->image2 = $pathImage;
         }
     }

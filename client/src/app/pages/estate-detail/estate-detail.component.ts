@@ -6,7 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Owner} from '../../shared/models/owner.model';
 import {Observable} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
-import { pluck } from 'rxjs/operators';
+import { filter, pluck, tap } from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SubscribeService} from '../../services/subscribe.service';
 import {City} from '../../shared/models/city.model';
@@ -61,7 +61,10 @@ export class EstateDetailComponent implements OnInit {
       phone: [null, [Validators.required]]
     });
 
-    this.Auth.owner$.subscribe(owner => {
+    this.Auth.owner$
+    .pipe(
+      filter(e => !!e))
+    .subscribe(owner => {
       this.formSubscribe.patchValue({
         name: owner.name,
         email: owner.email,
@@ -78,7 +81,6 @@ export class EstateDetailComponent implements OnInit {
         estate_id: this.estate.id,
       });
       const subData = this.formSubscribe.value;
-      console.log(subData);
       this.subScribeService.subForOwner(subData).subscribe(
         res => console.log(res)
       );

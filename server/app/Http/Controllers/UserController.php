@@ -13,6 +13,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -145,7 +146,7 @@ class UserController extends Controller
     function uploadImage($obj, $request)
     {
         if ($request->hasfile('image')) {
-            $pathImage = $request->file('image')->store('public/images');
+            $pathImage = Storage::disk('s3')->put('images', $request->image,'public');
             $obj->image = $pathImage;
         }
     }

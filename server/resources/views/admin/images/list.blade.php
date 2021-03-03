@@ -22,7 +22,6 @@
                                     <th>No.</th>
                                     <th>Estate Information</th>
                                     <th>Image</th>
-                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,15 +51,6 @@
 {{--                                            <span  class="badge {{$subscribe->getBadge()}}" style="padding: 7px; letter-spacing: 1.5px">{{$subscribe->getStatus()}}</span>--}}
 
 {{--                                        </td>--}}
-                                        <td>
-                                            <div>
-                                                <a data-placement="top"
-                                                   href="#" class="mr-3">
-                                                    <i style="font-size: 1.2rem" class="nav-icon fas fa-eye">Details</i>
-                                                </a>
-
-                                            </div>
-                                        </td>
                                 </tr>
                                 @empty
                                     <tr>
@@ -73,7 +63,6 @@
                                     <th>No.</th>
                                     <th>Estate Information</th>
                                     <th>Image</th>
-                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                             </table>

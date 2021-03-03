@@ -2,7 +2,7 @@
   <div class="header header-container">
     <div class="header__nav-bar">
       <div class="header__brand">
-        <a href="#hero">
+        <a routerLink="">
           <img src="assets/images/homeLogo.png" alt="">
         </a>
       </div>
@@ -46,12 +46,19 @@
       <form [formGroup]="formLogin" (ngSubmit)="submitLogin()" class="login_form">
         <div class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" placeholder="Email" name="email" formControlName="email" required>
+          <input type="text" class="form-control" placeholder="Email" formControlName="email" >
+          <!-- <div *ngIf="submitted && f.email.hasError()">
+            <div *ngIf="f.email.hasError('required')">Email is required</div>
+            <div *ngIf="f.email.hasError('email')">Email must be a valid email address</div>
+          </div> -->
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" placeholder="Password" name="password" formControlName="password" required>
-          <bfv-messages></bfv-messages>
+          <input type="password" class="form-control" placeholder="Password" formControlName="password">
+          <!-- <div *ngIf="submitted && f.password.hasError()" class="invalid-feedback">
+            <div *ngIf="f.password.hasError('required')">Password is required!!!</div>
+            <div *ngIf="formLogin.controls.password.hasError('minLength')">Password must be greater than 6 characters</div>
+          </div> -->
         </div>
         <div class="text-danger" [hidden]="!error">
           {{error}}

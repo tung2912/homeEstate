@@ -6,6 +6,7 @@ use App\Http\Requests\ImageRequest;
 use App\Models\Estate;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -35,7 +36,7 @@ class ImageController extends Controller
     function uploadImage($obj, $request)
     {
         if ($request->hasfile('image')) {
-            $pathImage = $request->file('image')->store('public/images');
+            $pathImage = Storage::disk('s3')->put('images', $request->image,'public');
             $obj->url = $pathImage;
         }
     }

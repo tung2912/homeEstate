@@ -19,7 +19,7 @@ class Image extends Model
     }
 
     function getNameImage(){
-        return '/storage/images/' .ltrim($this->url, '/public/images/');
+        return 'https://tungnguyenc3.s3.amazonaws.com/' .($this->url);
     }
 
 }

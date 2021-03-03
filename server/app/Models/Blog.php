@@ -17,9 +17,9 @@ class Blog extends Model
     ];
 
     function getNameImage1(){
-        return '/storage/images/' .ltrim($this->image1, '/public/images/');
+        return 'https://tungnguyenc3.s3.amazonaws.com/' .($this->image1);
     }
     function getNameImage2(){
-        return '/storage/images/' .ltrim($this->image2, '/public/images/');
+        return 'https://tungnguyenc3.s3.amazonaws.com/' .($this->image2);
     }
 }

@@ -30,6 +30,6 @@ class User extends Authenticatable
     }
 
     function getNameImage(){
-        return '/storage/images/' .ltrim($this->image, '/public/images/');
+        return 'https://tungnguyenc3.s3.amazonaws.com/' .($this->image);
     }
 }

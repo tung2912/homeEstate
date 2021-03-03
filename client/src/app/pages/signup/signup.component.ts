@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TokenService} from '../../services/token.service';
 import {AuthService} from '../../services/auth.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-signup',
@@ -24,18 +25,20 @@ export class SignupComponent implements OnInit {
     this.formSignUp = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]],
-      name: [null, [Validators.required]],
+      name: [null, [Validators.required, Validators.minLength(2)]],
       password_confirmation: [null, [Validators.required]],
       address: [null, [Validators.required]],
       phone: [null, [Validators.required]],
     });
   }
 
+
   submitSignUp(): void {
     this.Auth.signUp(this.formSignUp.value).subscribe(
       data => {
+        Swal.fire('Thank you...', 'You signed up succesfully!', 'success');
         this.loginFromSignup();
-        alert('Signup successfully');
+
         this.router.navigateByUrl('');
       },
       error => {
@@ -85,9 +88,4 @@ export class SignupComponent implements OnInit {
       });
     }, 0);
   }
-
-
-  // handleError(error) {
-  //   this.error = error.error.error;
-  // }
 }
