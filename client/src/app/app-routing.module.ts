@@ -19,6 +19,8 @@ import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {TrendPageComponent} from './pages/trend-page/trend-page.component';
 import {BlogLeftComponent} from './pages/blog-left/blog-left.component';
 import {BlogRightComponent} from './pages/blog-right/blog-right.component';
+import {AboutUsComponent} from './pages/about-us/about-us.component';
+import {PrivacyPageComponent} from './pages/privacy-page/privacy-page.component';
 
 
 const ROUTES: Routes = [
@@ -72,6 +74,14 @@ const ROUTES: Routes = [
   {
     path: 'financePage/2',
     component: BlogRightComponent
+  },
+  {
+    path: 'aboutUs',
+    component: AboutUsComponent
+  },
+  {
+    path: 'PrivacyPolicy',
+    component: PrivacyPageComponent
   }
 ];
 

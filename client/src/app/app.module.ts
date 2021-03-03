@@ -31,6 +31,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TrendPageComponent } from './pages/trend-page/trend-page.component';
 import { BlogLeftComponent } from './pages/blog-left/blog-left.component';
 import { BlogRightComponent } from './pages/blog-right/blog-right.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PrivacyPageComponent } from './pages/privacy-page/privacy-page.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { BlogRightComponent } from './pages/blog-right/blog-right.component';
     TrendPageComponent,
     BlogLeftComponent,
     BlogRightComponent,
+    AboutUsComponent,
+    PrivacyPageComponent,
   ],
     imports: [
         BrowserModule,
