@@ -12,19 +12,17 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com" src="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet" src="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" src="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="/client/styles.css" src="/client/styles.css">
+		<link rel="stylesheet" href="styles.9da70bb50ee38d6161e7.css" src="styles.9da70bb50ee38d6161e7.css">
 		{{--angular styles end--}}
 
 <body>
     <app-root></app-root>
     {{--angular scripts begin--}}
-		<script src="/client/runtime.js" defer=""></script>
-		<script src="/client/polyfills.js" defer=""></script>
-		<script src="/client/scripts.js" defer=""></script>
-		<script src="/client/vendor.js" defer=""></script>
-		<script src="/client/main.js" defer=""></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="runtime.be851566e6420a77d627.js" defer=""></script>
+		<script src="polyfills.3116b8e9dbb90fea460e.js" defer=""></script>
+		<script src="scripts.568694a568f45ab03c95.js" defer=""></script>
+		<script src="main.b2e00f52f029e2671696.js" defer=""></script>
 		{{--angular scripts end--}}
 </body>
 

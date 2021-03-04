@@ -93,6 +93,12 @@ class EstateController extends Controller
     public function apiEstateAroundMillion() {
         $estates = Estate::whereBetween('price',[500000,1000000])->where('status','=', 2)->get();
 
+        foreach($estates as $estate) {
+            foreach($estate->images as $image) {
+                $estate->image = $image->url;
+            }
+        }
+
         foreach ($estates as $estate) {
             $city = $estate->city->name;
             $estate->city_name = $city;
@@ -104,6 +110,12 @@ class EstateController extends Controller
     public  function apiEstateAffordable() {
         $estates = Estate::where('price', '<=', 500000)->where('status','=', 2)->get();
 
+        foreach($estates as $estate) {
+            foreach($estate->images as $image) {
+                $estate->image = $image->url;
+            }
+        }
+
         foreach ($estates as $estate) {
             $city = $estate->city->name;
             $estate->city_name = $city;
@@ -114,6 +126,12 @@ class EstateController extends Controller
 
     public function apiEstateLuxury() {
         $estates = Estate::where('price','>=',1500000)->where('status','=', 2)->get();
+
+        foreach($estates as $estate) {
+            foreach($estate->images as $image) {
+                $estate->image = $image->url;
+            }
+        }
 
         foreach ($estates as $estate) {
             $city = $estate->city->name;
