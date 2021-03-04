@@ -80,12 +80,13 @@ class EstateController extends Controller
         $estate = Estate::find($id);
         $city = $estate->city->name;
         $estate->city_name = $city;
+        $images = Image::where('estate_id',$id)->get();
 
         if(is_null($estate)) {
             return response()->json(['message' => 'Estate not found'], 404);
         }
 
-        return response()->json(['estate'=>$estate], 200);
+        return response()->json(['estate' => $estate, 'images' => $images], 200);
     }
 
 
