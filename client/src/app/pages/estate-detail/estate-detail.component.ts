@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {Estate} from '../../shared/models/estates.model';
 import {EstateService} from '../../services/estate.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Owner} from '../../shared/models/owner.model';
 import {Observable} from 'rxjs';
 import {AuthService} from '../../services/auth.service';
@@ -10,6 +10,8 @@ import { filter, pluck, tap } from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SubscribeService} from '../../services/subscribe.service';
 import {City} from '../../shared/models/city.model';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {Image} from '../../shared/models/image.model';
 
 @Component({
   selector: 'app-estate-detail',
@@ -21,13 +23,15 @@ export class EstateDetailComponent implements OnInit {
   estate: Estate = null;
   owner: Owner;
   city: City = null;
+  images: Image[] = [];
 
   constructor(config: NgbCarouselConfig,
               private estateService: EstateService,
               private route: ActivatedRoute,
               private Auth: AuthService,
               private formBuilder: FormBuilder,
-              private subScribeService: SubscribeService) {
+              private subScribeService: SubscribeService,
+              private router: Router) {
     config.interval = 10000;
     config.wrap = true;
     config.keyboard = false;
@@ -47,8 +51,7 @@ export class EstateDetailComponent implements OnInit {
     this.estateService.getById(id).subscribe(
       (data: any) => {
         this.estate = data.estate;
-        // console.log(data);
-        console.log(data);
+        this.images = data.images;
       }
     );
 
@@ -82,7 +85,10 @@ export class EstateDetailComponent implements OnInit {
       });
       const subData = this.formSubscribe.value;
       this.subScribeService.subForOwner(subData).subscribe(
-        res => console.log(res)
+        res => {
+          Swal.fire('Thank you...', 'Your subscribe posted succesfully!<br> We\'ll contact to you later', 'success');
+          this.router.navigateByUrl('');
+        }
       );
     }
     if (!this.owner) {
@@ -91,7 +97,10 @@ export class EstateDetailComponent implements OnInit {
       });
       const subData = this.formSubscribe.value;
       this.subScribeService.subForClient(subData).subscribe(
-        res => console.log(res)
+        res => {
+          Swal.fire('Thank you...', 'Your subscribe posted succesfully!<br> We\'ll contact to you later', 'success');
+          this.router.navigateByUrl('');
+        }
       );
     }
   }

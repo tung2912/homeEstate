@@ -14,18 +14,9 @@
     <!--    =========== SLIDE SHOW ===========-->
     <div class="col-12 col-md-8 slideEstate">
       <ngb-carousel>
-        <ng-template ngbSlide>
-          <img src="./assets/images/homecover1.jpg" alt="Delhi Metro">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <img src="https://tungnguyenc3.s3.amazonaws.com/{{image.url}}" alt="{{estate.city_name}}">
         </ng-template>
-
-        <ng-template ngbSlide>
-          <img src="./assets/images/homecover1.jpg" alt="Bangalore Metro">
-        </ng-template>
-
-        <ng-template ngbSlide>
-          <img src="./assets/images/homecover1.jpg" alt="Channai Metro">
-        </ng-template>
-
       </ngb-carousel>
 
 
