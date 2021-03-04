@@ -66,4 +66,14 @@ class Subscribe extends Model
             return $this->owner->name;
         }
     }
+
+    public function getSubInfo() {
+        if(isset($this->client_id)) {
+            return $this->client;
+        }
+
+        elseif(isset($this->owner_id)) {
+            return $this->client;
+        }
+    }
 }

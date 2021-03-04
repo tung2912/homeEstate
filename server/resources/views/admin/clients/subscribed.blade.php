@@ -38,16 +38,16 @@
                                             <div style="display: none" class="descriptionHTML{{$client->id}}">
                                                 <div class="row">
                                                     <div class="col-5">
-                                                        <p><span><i class="fas fa-th-large"></i></span> {{ $client->subscribe->estate->floor_space }} sqft</p>
-                                                        <p><span><i class="fas fa-dollar-sign"></i></span> {{ $client->subscribe->estate->price }}</p>
-                                                        <p><span><i class="fas fa-map-pin"></i></span> {{$client->subscribe->estate->address }}, {{ $client->subscribe->estate->city->name }}</p>
+                                                        <p><span><i class="fas fa-th-large"></i></span> {{ $client->subscribe->estate->floor_space}} sqft</p>
+                                                        <p><span><i class="fas fa-dollar-sign"></i></span> {{ $client->subscribe->estate->price}}</p>
+                                                        <p><span><i class="fas fa-map-pin"></i></span> {{$client->subscribe->estate->address}}, {{ $client->subscribe->estate->city->name }}</p>
 
                                                     </div>
 
                                                     <div class="col-5">
-                                                        <p><span><i class="fas fa-bed"></i></span> {{$client->subscribe->estate->bedroom_nums }} Beds</p>
-                                                        <p><span><i class="fas fa-bath"></i></span> {{ $client->subscribe->estate->bathroom_nums }} Baths</p>
-                                                        <p><span><i class="fas fa-car"></i></span> {{$client->subscribe->estate->garage_nums }} Garage</p>
+                                                        <p><span><i class="fas fa-bed"></i></span> {{$client->subscribe->estate->bedroom_nums}} Beds</p>
+                                                        <p><span><i class="fas fa-bath"></i></span> {{$client->subscribe->estate->bathroom_nums }} Baths</p>
+                                                        <p><span><i class="fas fa-car"></i></span> {{$client->subscribe->estate->garage_nums}} Garage</p>
 
                                                     </div>
                                                 </div>
@@ -66,7 +66,7 @@
 
                                                 <a class="text-danger"
                                                    onclick="return confirm('Are you sure you want to delete')"
-                                                   href="">
+                                                   href="{{ route('clients.deleteSubscriber', $client->id) }}">
                                                     <i class="nav-icon far fa-trash-alt"></i>Delete</a>
                                             </div>
                                         </td>

@@ -15,10 +15,10 @@
             <div class="col-lg-4 col-md-12 col-sm-12 estate-owner">
                 <h5 class="mt-2">Subscriber</h5>
                 <hr>
-                <p><span><i class="far fa-user"></i></span> {{$subscribe->getSubScriber()}}</p>
-                <p><span><i class="far fa-envelope"></i></span> {{$subscribe->getSubScriber()}}</p>
-                <p><span><i class="fas fa-home"></i></span> {{$subscribe->getSubScriber()}}</p>
-                <p><span><i class="fas fa-phone"></i></span> {{$subscribe->getSubScriber()}}</p>
+                <p><span><i class="far fa-user"></i></span> {{$subscribe->getSubInfo()->name}}</p>
+                <p><span><i class="far fa-envelope"></i></span> {{$subscribe->getSubInfo()->email}}</p>
+                <p><span><i class="fas fa-home"></i></span> {{$subscribe->getSubInfo()->address}}</p>
+                <p><span><i class="fas fa-phone"></i></span> {{$subscribe->getSubInfo()->phone}}</p>
 
             </div>
 
