@@ -51,14 +51,16 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+      <tr *ngFor="let estate of EstatesOfOwners; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{estate.created_at | date: 'dd/MM/yyyy'}}</td>
+        <td>
+          <span class="badge {{(estate.status==1)?'badge-warning':(estate.status==2)?'badge-info':(estate.status==3)?'badge-danger':'badge-success'}}">{{(estate.status==1)?"WAITING":(estate.status==2)?"APPROVED":(estate.status==3)?"CANCELED":"DONE"}}</span>
+        </td>
         <td>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
+          <button type="button" value="{{estate.id}}" class="btn btn-primary" (click)="openDetails(contentDetails, estate)">
+            Show details
           </button>
 
         </td>
@@ -81,21 +83,40 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+      <tr *ngFor="let EstateSub of EstateSubByOwners; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{EstateSub.created_at | date: 'dd/MM/yyyy'}}</td>
+        <td>
+          <span class="badge {{(EstateSub.status==1)?'badge-warning':(EstateSub.status==2)?'badge-info':(EstateSub.status==3)?'badge-danger':'badge-success'}}">{{(EstateSub.status==1)?"WAITING":(EstateSub.status==2)?"APPROVED":(EstateSub.status==3)?"CANCELED":"DONE"}}</span>
+        </td>
         <td>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
+          <button type="button" class="btn btn-primary" (click)="openDetails(contentDetails, EstateSub)">
+            Show details
           </button>
-
         </td>
       </tr>
       </tbody>
     </table>
   </section>
 </section>
-
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h2 style="margin-left: 30%;" class="modal-title" id="modal-basic-title">Estate information</h2>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><span class="es-icon"><i class="fas fa-map-pin"><label class="infodetails" id="address"></label></i></span></p>
+    <p><span class="es-icon"><i class="fas fa-dollar-sign"><label class="infodetails" id="price"></label></i></span></p>
+    <p><span class="es-icon"><i class="fas fa-th-large"><label class="infodetails" id="floor_space"></label></i></span> sqft</p>
+    <p><span class="es-icon"><i class="fas fa-bed"><label class="infodetails" id="bedroom_nums"></label></i></span> Beds</p>
+    <p><span class="es-icon"><i class="fas fa-bath"><label class="infodetails" id="bathroom_nums"></label></i></span> Baths</p>
+    <p><span class="es-icon"><i class="fas fa-car"></i><label class="infodetails" id="garage_nums"></label></span> Garage</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
 

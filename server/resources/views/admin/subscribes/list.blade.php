@@ -28,7 +28,7 @@
                                 <tr>
                                     @forelse($subscribes as $key => $subscribe)
                                         <td>{{++$key}}</td>
-                                        <td>{{$subscribe->getSubScriber()->name}}</td>
+                                        <td>{{$subscribe->getSubScriber()}}</td>
                                         <td>
                                             <button style="background-color: #529DDD;color: white" value="{{$subscribe->estate->id}}" class="btn details">Show Info <i class="nav-icon fas fa-eye"></i></button>
                                             <div style="display: none" class="detailHTML{{$subscribe->estate->id}}">
