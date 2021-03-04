@@ -12,7 +12,7 @@
 
   <div class="row">
     <!--    =========== SLIDE SHOW ===========-->
-    <div class="col-12 col-md-8 slideEstate">
+    <div class="col-12 col-md-6 slideEstate">
       <ngb-carousel>
         <ng-template ngbSlide *ngFor="let image of images">
           <img src="https://tungnguyenc3.s3.amazonaws.com/{{image.url}}" alt="{{estate.city_name}}">
@@ -23,7 +23,7 @@
     </div>
 
     <!--    ============= FORM ============-->
-    <div class="col-12 col-md-4 formEstate  ">
+    <div class="col-12 col-md-6 formEstate  ">
       <form [formGroup]="formSubscribe" (ngSubmit)="submitSubscribe()">
         <h3>More about this property</h3>
         <div class="form-group">

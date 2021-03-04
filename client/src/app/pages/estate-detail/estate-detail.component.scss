@@ -1,15 +1,14 @@
 #estatesDetail {
   margin-top: 10rem;
 
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 10em;
+  margin-right: 10rem;
 
   .slideEstate {
       padding-right: 0;
-
-      max-height: 600px;
       img {
         width: 100%;
+        max-height: 350px;
       }
   }
 
