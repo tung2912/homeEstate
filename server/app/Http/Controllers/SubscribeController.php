@@ -26,6 +26,13 @@ class SubscribeController extends Controller
     public function changeStatus(Request $request, $id) {
         $subscribe = Subscribe::findOrFail($id);
 
+        $estate = Estate::findOrFail($subscribe->estate_id);
+
+        if($request->status == 4) {
+            $estate->status = 4;
+            $estate->save();
+        }
+
         $subscribe->status = $request->status;
         $subscribe->save();
 

@@ -42,7 +42,6 @@ class EstateController extends Controller
         $estate->status = $request->input('status');
         $estate->save();
 
-
         return redirect()->route('estates.index');
     }
 
