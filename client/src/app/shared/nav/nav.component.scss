@@ -261,12 +261,11 @@
 
 .modalCloseBtn {
   font-size: 22px;
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 3px 6px;
 
   border-radius: 50%;
-  background-color: #D0D9D9;
     &:hover {
       color: black;
       background-color: white;
@@ -274,7 +273,7 @@
 }
 
 .modal-title {
-  margin-left: 35%;
+  margin-left: 45%;
 }
 
 .loginBtn {
