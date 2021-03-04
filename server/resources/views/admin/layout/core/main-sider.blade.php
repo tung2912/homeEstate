@@ -182,7 +182,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item ml-3">
-                            <a href="#"
+                            <a href="{{ route('incomes.index') }}"
                                class="nav-link ">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>Income List</p>

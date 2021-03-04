@@ -13,6 +13,7 @@ use App\Http\Controllers\CityController;
 
 use App\Http\Controllers\EstateController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\IncomeController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -112,6 +113,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/create',[ImageController::class,'create'])->name('images.create');
         Route::post('/create',[ImageController::class,'store'])->name('images.store');
     });
+
+    Route::prefix('incomes')->group(function () {
+        Route::get('/', [IncomeController::class, 'index'])->name('incomes.index');
+    });
+
 
 });
 
