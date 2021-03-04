@@ -95,9 +95,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div style="letter-spacing: 5px; font-size: 1rem" class="mt-1 badge {{$subscribe->estate->getBadge()}}">
-                    {{$subscribe->estate->getStatus()}}
-                </div>
                 <button type="button" style="border: none; font-weight: bold" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
