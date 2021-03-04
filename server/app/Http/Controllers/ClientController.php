@@ -44,11 +44,22 @@ class ClientController extends Controller
     }
 
     public function apiGetOwnerDetail($owner_id) {
-        $subscribedByOwners = Subscribe::where('owner_id', $owner_id)->get();
+        $subByOwners = Subscribe::where('owner_id', $owner_id)->get();
+        $estateSubByOwners = [];
+        foreach($subByOwners as $subByOwner) {
+            $estateSubByOwner = $subByOwner->estate;
+            array_push($estateSubByOwners, $estateSubByOwner);
+        }
+        foreach ($estateSubByOwners as $estateSubByOwner) {
+            $estateSubByOwner->city_name = $estateSubByOwner->city->name;
+        }
 
         $estatesOfOwners = Estate::where('owner_id', $owner_id)->get();
+        foreach ($estatesOfOwners as $estatesOfOwner) {
+            $estatesOfOwner->city_name = $estatesOfOwner->city->name;
+        }
 
-        return response()->json(['SubByOwners'=>$subscribedByOwners, 'EstatesofOwners'=>$estatesOfOwners]);
+        return response()->json(['EstateSubByOwners'=>$estateSubByOwners, 'EstatesOfOwners'=>$estatesOfOwners]);
     }
 
 
