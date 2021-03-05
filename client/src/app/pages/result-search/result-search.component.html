@@ -6,7 +6,7 @@
       <a [routerLink]="['/estateDetail/',estate.id]">
         <div class="card">
           <div class="imgEstate">
-            <img class="card-img-top" src="https://ap.rdcpix.com/24bd4fa02b71e594f938ec149ade1700l-m3307468014od-w1024_h768.jpg" alt="Card image cap">
+            <img class="card-img-top" src="https://tungnguyenc3.s3.amazonaws.com/{{estate.image}}" alt="Card image cap">
             <div class="estatesPrice">${{estate.price }}</div>
           </div>
 
@@ -16,7 +16,7 @@
               <span  class="info"><b class="number">{{estate.bathroom_nums }}</b>  bath</span>
               <span  class="info"><b class="number">{{estate.floor_space}}</b>  sqft</span>
               <br>
-              <span>{{estate.address}}, {{estate.name}}</span>
+              <span>{{estate.address}}, {{estate.city_name}}</span>
             </p>
           </div>
         </div>
