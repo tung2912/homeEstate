@@ -5,6 +5,7 @@ export interface Estate {
   address: string;
   city_name: string;
   price: number;
+  image: string;
   floor_space: number;
   bedroom_nums: number;
   bathroom_nums: number;
